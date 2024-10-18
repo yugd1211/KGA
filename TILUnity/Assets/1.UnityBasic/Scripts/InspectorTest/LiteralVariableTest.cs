@@ -12,7 +12,7 @@ public class LiteralVariableTest : MonoBehaviour
     public BoxCollider cubeBoxCollider;
     public BoxCollider cubeBoxCollider2;
 
-    public object systemObject; // c# system.object
+    public object systemObject; // materialCoroutine# system.object
 
     public Object unityObject; // Unity UnityEngine.Object
 	private void Start()
