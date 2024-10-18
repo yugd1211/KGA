@@ -130,6 +130,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1294805232690662, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488230402197946, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1610884164528438, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
       propertyPath: m_Name
       value: Neptune
@@ -228,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 0.67125
   revolveTarget: {fileID: 593481700}
   revolveDistance: 67.6
   revolveSpeed: 31536000
@@ -326,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 86164.1
+  rotateSpeed: 0.9972696
   revolveTarget: {fileID: 593481700}
   revolveDistance: 2.1
   revolveSpeed: 365.26
@@ -410,7 +418,7 @@ Camera:
   m_GameObject: {fileID: 282840810}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -435,7 +443,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5.66
   m_Depth: -1
   m_CullingMask:
@@ -460,13 +468,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10487992, y: -0.5523989, z: 0.07252806, w: 0.823769}
-  m_LocalPosition: {x: 18.059, y: 2.84, z: 0.839756}
+  m_LocalRotation: {x: 0.17136313, y: -0.87847745, z: -0.13279274, w: 0.42576778}
+  m_LocalPosition: {x: 180, y: -2, z: 67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 14.651, y: -67.662, z: 0.214}
+  m_LocalEulerAnglesHint: {x: -5.013, y: -127.192, z: -24.566}
 --- !u!1001 &437541058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,11 +483,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1210505617414970, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_Name
       value: Mars
       objectReference: {fileID: 0}
     - target: {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728730882026754, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -573,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 1.025957
   revolveTarget: {fileID: 593481700}
   revolveDistance: 3.6
   revolveSpeed: 686.96
@@ -585,6 +601,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1292139682315398, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645654297546322, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1856687845478954, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_Name
       value: Mercury
@@ -683,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 58.6462
   revolveTarget: {fileID: 593481700}
   revolveDistance: 0.4
   revolveSpeed: 87.97
@@ -953,7 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 243.0185
   revolveTarget: {fileID: 593481700}
   revolveDistance: 1.1
   revolveSpeed: 224.7
@@ -965,6 +989,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1142210567754016, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388883511196102, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1027,7 +1059,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 703244459}
+      addedObject: {fileID: 703244462}
   m_SourcePrefab: {fileID: 100100000, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
 --- !u!4 &703244457 stripped
 Transform:
@@ -1039,7 +1071,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
   m_PrefabInstance: {fileID: 703244456}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &703244459
+--- !u!114 &703244462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1048,13 +1080,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 703244458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
+  m_Script: {fileID: 11500000, guid: a1306bcfe1d12486d8a80a5d8d1f2283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 27.3216
   revolveTarget: {fileID: 256709531}
-  revolveDistance: 1
-  revolveSpeed: 31536000
+  revolveDistance: 0.4
+  revolveSpeed: 27.322
 --- !u!1001 &729760128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,6 +1095,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1154408759757944, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405028298800930, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1901559596380486, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1149,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 6.3872
   revolveTarget: {fileID: 593481700}
   revolveDistance: 107.1
   revolveSpeed: 31536000
@@ -1166,6 +1206,14 @@ PrefabInstance:
       value: Uranus
       objectReference: {fileID: 0}
     - target: {fileID: 1014736895960144, guid: c91342f6e3afc48fd958056404ead345, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096564875544702, guid: c91342f6e3afc48fd958056404ead345, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362093620175414, guid: c91342f6e3afc48fd958056404ead345, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1259,7 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 0.71833
   revolveTarget: {fileID: 593481700}
   revolveDistance: 37.5
   revolveSpeed: 31536000
@@ -1453,13 +1501,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1103792917632102, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445422062220386, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1628933999407032, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865593898569828, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4277827671834268, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_LocalScale.x
@@ -1567,7 +1627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 0.44401
   revolveTarget: {fileID: 593481700}
   revolveDistance: 18.3
   revolveSpeed: 31536000
@@ -1579,6 +1639,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 558508861}
     m_Modifications:
+    - target: {fileID: 1097216225574134, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215831472866150, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1526814149960808, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
       propertyPath: m_Name
       value: Jupiter
@@ -1677,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5fbe56cbd53124b8fb06b2b0df3285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 0.41354
   revolveTarget: {fileID: 593481700}
   revolveDistance: 8.8
   revolveSpeed: 4333.29

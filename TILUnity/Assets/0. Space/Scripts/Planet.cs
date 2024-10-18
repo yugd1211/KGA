@@ -20,27 +20,32 @@ public class Planet : MonoBehaviour
 		solar = FindObjectOfType<Solar>();
 		targetScale = revolveTarget.transform.localScale.x;
 		revolveSpeed = revolveSpeed * 24 * 60 * 60;
+		rotateSpeed = rotateSpeed * 24 * 60 * 60;
 		transform.Rotate(Vector3.up, 10f);
 	}
 
 	void FixedUpdate()
     {
-		// ÀÚÀü
-		//float rotationSpeed = 86,400f;  // ÀÚÀü ÁÖ±â (ÃÊ)
+		// ï¿½ï¿½ï¿½ï¿½
+		//float rotationSpeed = 86,400f;  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ (ï¿½ï¿½)
 		//rotationTime += (Time.fixedDeltaTime * (2 * Mathf.PI) / rotationSpeed);
 		transform.position = revolveTarget.transform.position + new Vector3(targetScale / 2, 0, 0);
 		transform.position = transform.position + new Vector3(revolveDistance * solar.disdanceMag, 0, 0);
 		//transform.Rotate(Vector3.up, (Time.fixedDeltaTime * (2 * Mathf.PI) / rotateSpeed));
 		transform.Rotate(Vector3.up, 360 * Time.fixedTime / rotateSpeed);
 
-		if (gameObject.name == "Earth")
-			print(360 * Time.fixedTime / rotateSpeed);
+		// if (gameObject.name == "Earth")
+			// print(360 * Time.fixedTime / rotateSpeed);
 
-		// °øÀü
+		// ï¿½ï¿½ï¿½ï¿½
 		revolveTime += (Time.fixedDeltaTime * (2 * Mathf.PI) / revolveSpeed);
 		float x = (targetScale / 2 + revolveDistance * solar.disdanceMag) * Mathf.Cos(revolveTime);
 		float z = (targetScale / 2 + revolveDistance * solar.disdanceMag) * Mathf.Sin(revolveTime);
 		transform.position = new Vector3(x, transform.position.y, z);
-		
+		if (gameObject.name == "Moon")
+		{
+			print($"{targetScale}, {revolveDistance}, {solar.disdanceMag}");
+		}
+
 	}
 }
