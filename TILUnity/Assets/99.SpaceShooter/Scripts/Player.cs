@@ -9,12 +9,13 @@ namespace SpaceShooter
 	public class Player : MonoBehaviour
 	{
 		public float speed = 5f;
-		public float boundaryMinSize = -3.5f;
-		public float boundaryMaxSize = 3.5f;
 
-		public GameObject gameoverMessage;
-		public GameObject retryButton;
+		private BulletSpawner bulletSpawner;
 
+		private void Start()
+		{
+			bulletSpawner = GetComponentInChildren<BulletSpawner>();
+		}
 
 		private void Update()
 		{
@@ -23,33 +24,20 @@ namespace SpaceShooter
 			// Horizontal : x√‡, Vertical : y√‡
 		
 			float x = Input.GetAxis("Horizontal");
-			transform.Translate(new Vector3(x, 0, 0) * Time.deltaTime * speed);
+			float y = Input.GetAxis("Vertical");
+			transform.Translate(new Vector3(x, y, 0) * Time.deltaTime * speed);
 
-			if (transform.position.x <  boundaryMinSize)
-				transform.position = new Vector3(boundaryMinSize, transform.position.y);
-			if (transform.position.x > boundaryMaxSize)
-				transform.position = new Vector3(boundaryMaxSize, transform.position.y);
+			//if (Input.GetKey(KeyCode.Space))
+			//{
+			//	bulletSpawner.Spawn();
+			//}
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
+			print(other.tag);
 			if (other.CompareTag("Enemy"))
-			{
-				GameOver();
-			}
-		}
-
-		public void GameOver()
-		{
-			gameoverMessage.SetActive(true);
-			retryButton.SetActive(true);
-			Time.timeScale = 0;
-		}
-
-		public void Retry()
-		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			Time.timeScale = 1;
+				GameManager.Instance.GameOver();
 		}
 	}
 }

@@ -15,22 +15,15 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
-		RandomPosition();
-	}
-
-	private void RandomPosition()
-	{
-		rigidbody2D.velocity = Vector3.zero;
-		float x = Random.Range(xBoundaryMinSize, xBoundaryMaxSize);
-		float y = Random.Range(yBoundaryMinSize, yBoundaryMaxSize);
-		transform.position = new Vector3(x, y, 0);
 	}
 
 	private void Update()
 	{
-		if (transform.position.y < -5.5f)
-		{
-			RandomPosition();
-		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Wall"))
+			Destroy(gameObject);
 	}
 }
