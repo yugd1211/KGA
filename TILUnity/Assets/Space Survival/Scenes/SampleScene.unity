@@ -1165,7 +1165,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1885450819}
   - component: {fileID: 1885450820}
-  - component: {fileID: 1885450821}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -1224,18 +1223,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
---- !u!114 &1885450821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885450818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30ef84be5658bdb4d938b67094376015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1966559056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1234,6 @@ GameObject:
   - component: {fileID: 1966559057}
   - component: {fileID: 1966559060}
   - component: {fileID: 1966559059}
-  - component: {fileID: 1966559058}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1273,25 +1259,6 @@ Transform:
   - {fileID: 412212097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1966559058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966559056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948ee860ebc498440851ca8c5fa7a371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  damage: 5
-  moveSpeed: 5
-  projectilePrefab: {fileID: 2452495516228825841, guid: db241663d3ca96e46a92e22395dc25f2, type: 3}
-  killCount: 0
-  killCountText: {fileID: 793190676}
-  hpBarImage: {fileID: 434334955}
 --- !u!58 &1966559059
 CircleCollider2D:
   m_ObjectHideFlags: 0
