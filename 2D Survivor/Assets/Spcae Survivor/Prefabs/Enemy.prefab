@@ -173,7 +173,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8899287517896775830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,10 @@ MonoBehaviour:
   hp: 100
   damage: 1
   moveSpeed: 3
+  damageInterval: 1
   hpBar: {fileID: 4790294744894253439}
+  player: {fileID: 0}
+  impactParticle: {fileID: 3145483629321702542, guid: 5e568e54e8051d543b7be85a330bd2b5, type: 3}
 --- !u!1 &6763763860512304912
 GameObject:
   m_ObjectHideFlags: 0

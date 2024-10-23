@@ -168,3 +168,4 @@ MonoBehaviour:
   damege: 0
   moveSpeed: 0
   duration: 5
+  impactParticle: {fileID: 3145483629321702542, guid: 77d5f681c47b60742b48f5fa23c4e503, type: 3}
