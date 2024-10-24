@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance => instance;
 	private GameManager() {/* 생성자를 private로 선언하여 외부에서 생성을 막는다. */}
 
+
+	public GameObject LevelUpUi;
+
 	internal List<Enemy> enemies = new List<Enemy>();
 	internal Player player;
 	internal event Action enemyAllKillEvent;
@@ -28,6 +31,17 @@ public class GameManager : MonoBehaviour
 		}
 		instance = this;
 		DontDestroyOnLoad(gameObject);
+	}
+
+	public void TimeStop()
+	{
+		Time.timeScale = 0;
+	}
+
+	public void TimeResume()
+	{
+		LevelUpUi.SetActive(false);
+		Time.timeScale = 1;
 	}
 	private void Start()
 	{

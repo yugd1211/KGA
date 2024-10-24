@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100000
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   damage: 1
-  moveSpeed: 3
+  moveSpeed: 0
   damageInterval: 1
   hpBar: {fileID: 4790294744894253439}
   player: {fileID: 0}

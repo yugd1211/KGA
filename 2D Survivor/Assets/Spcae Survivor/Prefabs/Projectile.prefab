@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92502731d16e57c42aa3c5fca1b4c067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damege: 0
+  damage: 0
   moveSpeed: 0
-  duration: 5
+  duration: 1.16
   impactParticle: {fileID: 3145483629321702542, guid: 77d5f681c47b60742b48f5fa23c4e503, type: 3}
+  pierceCount: 0

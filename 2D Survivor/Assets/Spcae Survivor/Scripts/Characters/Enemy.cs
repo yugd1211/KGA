@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 		GameManager.Instance.enemyAllKillEvent -= Die;
 		GameManager.Instance.player.KillCount++;
 		GameManager.Instance.itemSpawner.SpawnExp(transform.position);
-		Destroy(gameObject);
+		PoolManager.Instance.enemyPool.Push(this);
 	}
 
 

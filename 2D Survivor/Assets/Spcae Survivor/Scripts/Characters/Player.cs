@@ -44,15 +44,11 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		Shoot s;
-		s = gameObject.AddComponent<Shoot>();
-		if (s != null)
-		{
-			skill = s;
-			s.prefab = projectilePrefab;
-			s.damage = damage;
-			s.interval = fireInterval;
-		}
+		//s = gameObject.AddComponent<LaserShotgun>();
+		//s = gameObject.AddComponent<LaserGun>();
+		//skill.interval = fireInterval;
+		Skill s = Instantiate(skill);
+		s.transform.SetParent(transform);
 	}
 
 	private void Start()
@@ -99,7 +95,11 @@ public class Player : MonoBehaviour
 		if (Input.GetButton("Fire1"))
 		{
 			if (targetEnemy != null)
+			{
+				print($"Player {targetEnemy.GetInstanceID()}");
+				// todo : 현재 코루틴을 ㅗ처리하니까 변수 캡처때문에 문제있음
 				skill.UseSkill(targetEnemy.transform);
+			}
 			//isFire = true;
 			//fireCoroutine = StartCoroutine(FireCoroutine());
 		}
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
 	//public void Fire(Vector2 dir)
 	//{
 	//	Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-	//	projectile.damege = Damage;
+	//	projectile.damage = Damage;
 	//	projectile.duration = 5f;
 	//	projectile.moveSpeed = 10f;
 	//	projectile.transform.up = dir;
@@ -201,6 +201,8 @@ public class Player : MonoBehaviour
 	private void LevelUp()
 	{
 		level++;
+		GameManager.Instance.TimeStop();
+		GameManager.Instance.LevelUpUi.SetActive(true);
 	}
 
 
