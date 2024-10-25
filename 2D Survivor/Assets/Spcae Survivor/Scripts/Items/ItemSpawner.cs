@@ -6,7 +6,7 @@ public class ItemSpawner : MonoBehaviour
 {
 	public int spawnInterval = 10;
 	public List<GameObject> itemPrefabs;
-	public Transform[] SpawnPos;
+	public Vector2 minMaxDist;
 
 	private List<Item> items = new List<Item>();
 	private Exp exp;
@@ -32,7 +32,8 @@ public class ItemSpawner : MonoBehaviour
 
 	private void Spawn()
 	{
-		items.Add(Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Count)], SpawnPos[Random.Range(0, SpawnPos.Length)].position, Quaternion.identity).GetComponent<Item>());
+		var spawnPos = Random.insideUnitCircle.normalized * Random.Range(minMaxDist.x, minMaxDist.y);
+		items.Add(Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Count)], spawnPos, Quaternion.identity).GetComponent<Item>());
 	}
 
 	private IEnumerator SpawnCoroutine()

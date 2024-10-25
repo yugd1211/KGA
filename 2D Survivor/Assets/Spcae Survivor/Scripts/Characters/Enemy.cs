@@ -23,14 +23,19 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		maxHp = hp;
 	}
 
 	private void Start()
 	{
-		maxHp = hp;
 		player = GameManager.Instance.player;
-		GameManager.Instance.enemies.Add(this);
+	}
+
+	private void OnEnable()
+	{
 		GameManager.Instance.enemyAllKillEvent += Die;
+		GameManager.Instance.enemies.Add(this);
+		hp = maxHp;
 	}
 
 	private void Update()
@@ -43,7 +48,6 @@ public class Enemy : MonoBehaviour
 	}
 	private void Move(Vector2 dir)
 	{
-
 		Vector2 movePos = rb.position + (dir * moveSpeed * Time.deltaTime);
 		rb.MovePosition(movePos);
 	}
@@ -62,6 +66,7 @@ public class Enemy : MonoBehaviour
 		GameManager.Instance.enemies.Remove(this);
 		GameManager.Instance.enemyAllKillEvent -= Die;
 		GameManager.Instance.player.KillCount++;
+		GameManager.Instance.player.TotalKillCount++;
 		GameManager.Instance.itemSpawner.SpawnExp(transform.position);
 		PoolManager.Instance.enemyPool.Push(this);
 	}

@@ -13,9 +13,7 @@ public class EnemySpawner : MonoBehaviour
 	[Tooltip("한번에 스폰될 때 플레이어로부터의 최소, 최대 거리\n.x : 최소, y : 최대")]
 	public Vector2 minMaxDist;
 
-
 	public float spawnRate = 1f;
-	public Transform[] point;
 
 	private void Start()
 	{

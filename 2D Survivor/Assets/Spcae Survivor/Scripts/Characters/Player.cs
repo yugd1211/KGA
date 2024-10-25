@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
 	public float hp = 100f;
 	public float damage = 10f;
 	public float moveSpeed = 5f;
-	public Projectile projectilePrefab;
 	public Vector2 fireDir;
 	public Vector2 moveDir;
 	public float fireInterval;
@@ -19,17 +15,12 @@ public class Player : MonoBehaviour
 
 	public Animator IndicatorAnim;
 	public Animator anim;
-
-
-
-
-	public Skill skill;
-
-
+	public SkillSlot[] skillSlots;
 
 	public int Level => level + 1;
 	public float Damage { get { return damage * Level; } }
 	public int KillCount { get; set; }
+	public int TotalKillCount { get; set; }
 	public float hpAmount { get { return hp / maxHp; } }
 
 	public int exp = 0;
@@ -44,11 +35,11 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		//s = gameObject.AddComponent<LaserShotgun>();
-		//s = gameObject.AddComponent<LaserGun>();
-		//skill.interval = fireInterval;
-		Skill s = Instantiate(skill);
-		s.transform.SetParent(transform);
+		foreach (SkillSlot skillSlot in skillSlots)
+		{
+			skillSlot.CreatePrefab(transform);
+
+		}
 	}
 
 	private void Start()
@@ -56,9 +47,6 @@ public class Player : MonoBehaviour
 		maxHp = hp;
 		KillCount = 0;
 		GameManager.Instance.player = this;
-		// 리턴이 있는 함수를 호출할 때 리턴을 받아주지 않는다면
-		// 반환을 위한 메모리를 점유하지 않고 함수만 호출하게 하는 기능 "_=" 
-		//_ = StartCoroutine(FireCoroutine());
 	}
 
 	private void Update()
@@ -91,27 +79,27 @@ public class Player : MonoBehaviour
 
 
 		Move(moveDir);
-		// 마우스 좌클릭 또는 왼쪾 ctrl키로 발사
-		if (Input.GetButton("Fire1"))
-		{
-			if (targetEnemy != null)
-			{
-				print($"Player {targetEnemy.GetInstanceID()}");
-				// todo : 현재 코루틴을 ㅗ처리하니까 변수 캡처때문에 문제있음
-				skill.UseSkill(targetEnemy.transform);
-			}
-			//isFire = true;
-			//fireCoroutine = StartCoroutine(FireCoroutine());
-		}
-		//else if (Input.GetButtonUp("Fire1"))
-		//{
-		//	isFire = false;
-		//	//StopAllCoroutines();
-		//}
+	}
 
-		// 적이 없으면 발사 금지
-		//if (GameManager.Instance.enemies.Count == 0)
-		//	isFire = false;
+	// 파라미터로 넘어온 스킬의 레벨을 상승시키고 다음레벨의 프리팹으로 교체
+	public void OnSkillLevelUp(SkillSlot skillSlot)
+	{
+		if (skillSlot.skillLevel >= skillSlot.skillPrefabs.Length - 1)
+		{
+			// 유효하지 않은 스킬
+			Debug.LogWarning($"최대 레벨에 도달한 스킬 레벨업을 시도함. {skillSlot.skillName}");
+			return;
+		}
+		skillSlot.skillLevel++;
+
+		skillSlot.CreatePrefab(transform);
+		//skillSlot.currentSkillOjbect = Instantiate(skillSlot.skillPrefabs[skillSlot.skillLevel], transform, false);
+		//skillSlot.currentSkillOjbect.name = skillSlot.skillPrefabs[skillSlot.skillLevel].name;
+		//skillSlot.currentSkillOjbect.transform.localPosition = Vector2.zero;
+		//if (skillSlot.isTargeting)
+		//{
+		//skill.currentSkillOjbect.transform.SetParent(fireDir);
+		//}
 	}
 
 
@@ -129,29 +117,6 @@ public class Player : MonoBehaviour
 		rb.MovePosition(movePos);
 	}
 
-
-	//private IEnumerator FireCoroutine()
-	//{
-	//	// Vector3 -> Vector2로 묵시적 변환 가능 : z값 생략
-	//	while (true)
-	//	{
-	//		//if (isFire)
-	//		//Fire(fireDir);
-	//		yield return new WaitForSeconds(fireInterval);
-	//	}
-	//}
-
-	/// <summary>
-	/// 투사체를 발사하는 함수
-	/// </summary>
-	//public void Fire(Vector2 dir)
-	//{
-	//	Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-	//	projectile.damage = Damage;
-	//	projectile.duration = 5f;
-	//	projectile.moveSpeed = 10f;
-	//	projectile.transform.up = dir;
-	//}
 
 	public void TakeDamage(float damage)
 	{
@@ -191,27 +156,24 @@ public class Player : MonoBehaviour
 		this.exp += exp;
 		if (level < levelupSteps.Length && this.exp >= currentMaxExp)
 		{
-			LevelUp();
-			// 레벨업 이펙트도 추가해야함
-			// 레벨업 UI도 띄워줘야함
-			// 그러니까 함수로 뺴자
+			OnLevelUp();
 		}
 	}
 
-	private void LevelUp()
+	private void OnLevelUp()
 	{
 		level++;
-		GameManager.Instance.TimeStop();
-		GameManager.Instance.LevelUpUi.SetActive(true);
+		UIManager.Instance.levelupPanel.gameObject.SetActive(true);
+		UIManager.Instance.levelupPanel.LevelUpPanelOpen(skillSlots.ToList(), OnSkillLevelUp);
 	}
 
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		//if (collision.TryGetComponent<Item>(out Item item))
-		//{
-		//	item.Contact();
-		//}
+		if (collision.TryGetComponent<Item>(out Item item))
+		{
+			item.Contact();
+		}
 
 		// 특정 클래스를 상속하지 않고, 공통점이 없는 여러 객체들이 경우에 따라 같은 행동을 해야 할 경우
 		// Interface를 사용할 수 있다.
@@ -221,7 +183,7 @@ public class Player : MonoBehaviour
 		//}
 
 		// 게임 오브젝트는 모두 SendMessage를 통해 가지고 있는 컴포넌트의 특정 이름을 가진 함수를 호출하도록 하는 기능을 지원한다.	
-		collision.SendMessage("Contact", SendMessageOptions.DontRequireReceiver);
+		//collision.SendMessage("Contact", SendMessageOptions.DontRequireReceiver);
 		// SendMessage 사용시 주의점
 		// 1. 문자열로 함수를 호출하므로 함수 이름 변경 또는 오타 발생 시 에러 찾기가 힘들다.
 		// 2. 해당 객체에 있는 모든 컴포넌트들이 Contact라는 함수를 가지고 있는지 탐색을 수행하기 때문에 퍼포먼스가 효율적이라고 보기 힘들다.

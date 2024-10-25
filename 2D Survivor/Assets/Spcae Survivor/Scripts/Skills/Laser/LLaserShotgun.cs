@@ -18,13 +18,15 @@ public class LLaserShotgun : LLaserGun
 	{
 		foreach (Transform shotpoint in shotPoints)
 		{
-			Projectile proj = projPool.Pop();
+			//Projectile proj = projPool.Pop();
+			Projectile proj = Lean.Pool.LeanPool.Spawn(ProjectilePrefab);
 			proj.transform.position = transform.position;
 			proj.damage = damage;
 			proj.moveSpeed = projectileSpeed;
 			proj.transform.localScale *= projectileScale;
 			proj.transform.up = shotpoint.transform.position - transform.position;
 			proj.pierceCount = pierceCount;
+			Lean.Pool.LeanPool.Despawn(proj, proj.duration);
 		}
 	}
 

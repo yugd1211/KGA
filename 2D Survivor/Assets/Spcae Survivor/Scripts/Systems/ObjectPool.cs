@@ -13,8 +13,13 @@ public class ObjectPool<T> where T : MonoBehaviour
 		pool.Add(item);
 		for (int i = 0; i < PoolManager.Instance.gameObjectPools.Count; i++)
 		{
-			if (item.name == PoolManager.Instance.gameObjectPools[i].name)
+			//item.name.Substring
+			//Debug.Log(item.name.Replace("(Clone)", "").Trim()) + ":" + PoolManager.Instance.gameObjectPools[i].name + ":");
+			if (item.name.Replace("(Clone)", "").Trim() == PoolManager.Instance.gameObjectPools[i].name)
+			{
 				item.transform.SetParent(PoolManager.Instance.gameObjectPools[i], false);
+			}
+
 		}
 		item.gameObject.SetActive(false);
 	}

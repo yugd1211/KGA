@@ -25,9 +25,9 @@ public class HUD : MonoBehaviour
 	{
 		playerHPBar.fillAmount = player.hpAmount;
 		playerKillCount.text = $"Å³ ¼ö : {player.KillCount.ToString()}";
-		levelText.text = $"Level : {GameManager.Instance.player.Level.ToString()}";
-		expText.text = $"Exp : {GameManager.Instance.player.exp.ToString()}";
-		damageText.text = $"Damage : {GameManager.Instance.player.Damage.ToString()}";
-		hpText.text = $"HP : {GameManager.Instance.player.hp.ToString()}";
+		levelText.text = $"Level : {player.Level.ToString()}";
+		expText.text = $"Exp : {player.exp.ToString()}";
+		damageText.text = $"Damage : {player.Damage.ToString()}";
+		hpText.text = $"HP : {player.hp.ToString()}";
 	}
 }

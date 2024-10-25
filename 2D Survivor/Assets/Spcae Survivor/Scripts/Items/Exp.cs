@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Exp : Item
 {
-	int value = 10;
+	int value = 100;
 	public override void Contact()
 	{
 		GameManager.Instance.player.GainExp(value);

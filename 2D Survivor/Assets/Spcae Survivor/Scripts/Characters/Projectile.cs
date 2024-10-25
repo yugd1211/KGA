@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using Lean.Pool;
 
 public class Projectile : MonoBehaviour
 {
@@ -21,8 +22,9 @@ public class Projectile : MonoBehaviour
 		coll.enabled = false;
 	}
 
-	private void OnEnable()
+	private void OnEnable() // start보다 먼저 실행됨
 	{
+		//LeanPool.Despawn(this, duration); // 3초 뒤에 풀로 돌아감
 		StartCoroutine(PushDelay(duration));
 	}
 
@@ -45,7 +47,7 @@ public class Projectile : MonoBehaviour
 				contactedColl.GetComponent<Enemy>()?.TakeDamage(damage);
 				if (pierceCount == 0)
 				{
-					ProjectilePool.pool.Push(this);
+					PoolManager.Instance.projectilePool.Push(this);
 				}
 			}
 		}
@@ -65,15 +67,12 @@ public class Projectile : MonoBehaviour
 			Bounds myBound = GetComponent<Collider2D>().bounds;
 			ParticleSystem p = Instantiate(impactParticle, transform.position, Quaternion.identity);
 			p.Play();
-			Destroy(p.gameObject, 1f);
-			Destroy(gameObject);
 		}
 	}
 	private IEnumerator PushDelay(float delay)
 	{
 		yield return new WaitForSeconds(delay);
 		PoolManager.Instance.projectilePool.Push(this);
-		//ProjectilePool.pool.Push(this);
 	}
 
 	private void OnDisable()

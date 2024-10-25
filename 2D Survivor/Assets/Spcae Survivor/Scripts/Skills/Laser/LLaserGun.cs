@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using Lean.Pool;
 
 public class LLaserGun : MonoBehaviour
 {
@@ -48,12 +49,17 @@ public class LLaserGun : MonoBehaviour
 
 	protected virtual void Fire()
 	{
-		Projectile proj = projPool.Pop();
+		// 커스텀 오브젝트 풀
+		//Projectile proj = projPool.Pop();
 
+		// Lean Pool 사용
+
+		Projectile proj = LeanPool.Spawn(ProjectilePrefab, transform.position, transform.rotation);
 		proj.transform.SetPositionAndRotation(transform.position, transform.rotation);
 		proj.damage = damage;
 		proj.moveSpeed = projectileSpeed;
 		proj.transform.localScale *= projectileScale;
 		proj.pierceCount = pierceCount;
+		LeanPool.Despawn(proj, proj.duration);
 	}
 }
