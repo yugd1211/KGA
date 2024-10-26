@@ -54,11 +54,9 @@ MonoBehaviour:
   - {fileID: 1917744797884365843, guid: a2b124895fc515a4386f7dccb9280105, type: 3}
   - {fileID: 1917744797884365843, guid: 7340991c14c1f684eaef232a3d84c8c7, type: 3}
   - {fileID: 1917744797884365843, guid: 52401f98f5b227e4a94dfc661cf44d1d, type: 3}
-  currentSkillOjbect: {fileID: 0}
   target: {fileID: 0}
   damage: 10
   duration: 2
   moveSpeed: 15
-  pierceCount: 1
+  pierceCount: 2
   projectileCount: 1
-  PrefabVariants: []

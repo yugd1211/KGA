@@ -29,6 +29,8 @@ public class LaserShotgun : LaserGun
 		for (int i = 0; i < projectileCount; i++)
 		{
 			Projectile proj = PoolManager.Instance.projectilePool.Pop();
+			proj.gameObject.SetActive(true);
+			print($"i = {i}, {proj.GetInstanceID()}");
 			proj.transform.position = transform.position;
 			proj.damage = damage;
 			proj.moveSpeed = moveSpeed;
