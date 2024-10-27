@@ -6,11 +6,11 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-	// 1. ÀûÀÌ ÇÑ¹ø ½ºÆùµÉ ¶§ 1¸¶¸®°¡ ¾Æ´Ï¶ó 2 ~ 10 ¸¶¸® ½ºÆùÇÏµµ·Ï º¯°æ
-	// 2. Àû ½ºÆù À§Ä¡¸¦ Vector2.zero°¡ ¾Æ´Ñ, ÇÃ·¹ÀÌ¾î ±âÁØ Æ¯Á¤ °Å¸® ÀÌ»ó À§Ä¡¿¡ ½ºÆù
-	[Tooltip("ÇÑ¹ø¿¡ ½ºÆùµÉ ÀûÀÇ ¼ö.\nx : ÃÖ¼Ò, y : ÃÖ´ë")]
+	// 1. ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ 2 ~ 10 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Vector2.zeroï¿½ï¿½ ï¿½Æ´ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	[Tooltip("ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.\nx : ï¿½Ö¼ï¿½, y : ï¿½Ö´ï¿½")]
 	public Vector2Int minMaxCount;
-	[Tooltip("ÇÑ¹ø¿¡ ½ºÆùµÉ ¶§ ÇÃ·¹ÀÌ¾î·ÎºÎÅÍÀÇ ÃÖ¼Ò, ÃÖ´ë °Å¸®\n.x : ÃÖ¼Ò, y : ÃÖ´ë")]
+	[Tooltip("ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½, ï¿½Ö´ï¿½ ï¿½Å¸ï¿½\n.x : ï¿½Ö¼ï¿½, y : ï¿½Ö´ï¿½")]
 	public Vector2 minMaxDist;
 
 	public float spawnRate = 1f;
@@ -25,44 +25,12 @@ public class EnemySpawner : MonoBehaviour
 		while (0 < spawnCount--)
 		{
 			Vector2 playerPos = GameManager.Instance.player.transform.position;
-			// ±æÀÌ°¡ 1ÀÎ ¿ø ¾È¿¡¼­ ·£´ý À§Ä¡ÀÇ ÁÂÇ¥¸¦ ¹ÝÈ¯
-			Vector2 spawnPos;
-			float currentDistance = float.MaxValue;
-
-			//int loopCount = 0;
-			//do
-			//{
-			//	// ÇÃ·¹ÀÌ¾î·ÎºÎÅÍ °Å¸®°¡ 0 ~ minMaxDist.y »çÀÌÀÇ ÁÂÇ¥¸¦ ¹ÞÀ½
-			//	spawnPos = Random.insideUnitCircle * minMaxDist.y;
-			//	loopCount++;
-			//}
-			//while (spawnPos.magnitude < minMaxDist.x);
-			//print($"loopCount : {loopCount}");
-			//// ÇÑ¹ø¿¡ ½ºÆùÇÏ´Â °æ¿ìµµ ÀÖÁö¸¸	Á¶°ÇÀÌ ¸ÂÁö ¾Ê´Â ÁÂÇ¥°¡ ³ª¿Í¼­ ·çÇÁ µµ´Â ºóµµ°¡ ³ô´Ù
-			//// ·£´ýÀ¸·Î ³ª¿Â ÁÂÇ¥¸¦ ¹«Á¶°Ç Á¶°Ç¿¡ ¸Â°Ô °¡°ø
-
-
-
-
-			//Vector2 ranPos = Random.insideUnitCircle;
-			//Vector2 normalizedPos = ranPos.normalized;
-			//float moveRad = minMaxDist.y - minMaxDist.x; // 5 - 3 = 2
-			//Vector2 notSpawnAreaVector = normalizedPos * minMaxDist.x;
-			//Vector2 movedPos = ranPos * moveRad;
-			//spawnPos = movedPos + notSpawnAreaVector;
-
-
-
-
-
-			spawnPos = Random.insideUnitCircle.normalized * Random.Range(minMaxDist.x, minMaxDist.y);
-			//print(spawnPos.magnitude);
+			Vector2 spawnPos = Random.insideUnitCircle.normalized * Random.Range(minMaxDist.x, minMaxDist.y);
 
 			Enemy e = PoolManager.Instance.enemyPool.Pop();
 			e.gameObject.SetActive(true);
 			e.transform.position = playerPos + spawnPos;
 			e.transform.SetParent(transform);
-			//Instantiate(enemyPrefab, playerPos + spawnPos, Quaternion.identity);
 		}
 	}
 

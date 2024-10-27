@@ -5,11 +5,14 @@ using UnityEngine;
 
 public abstract class Skill : MonoBehaviour
 {
-	public string skillName;
+	
+	// ì•¡í‹°ë¸Œ ìŠ¤í‚¬ìš©
 	public float interval;
-	public int skillLevel;
-	public bool isTargeting;
-	public GameObject[] skillPrefabs; // 5°³ÀÇ ÇÁ¸®ÆÕÀ» ÂüÁ¶ÇÏ¿© °¢ ·¹º§¿¡ ¸Â´Â ÇÁ¸®ÆÕÀ» ·ÎµåÇÏµµ·Ï È°¿ë
+	public float damage;
 
-	public abstract void UseSkill(Transform target);
+	// ì˜µì €ë²„ë¡œ í•´ë„ ë ë“¯
+	// player damageë¥¼ subjectë¡œ ì„¤ì •í•˜ê³  skillì´ ì•Œë¦¼ë°›ìœ¼ë©´ damageë¥¼ ë³€ê²½í•˜ëŠ” ì‹ìœ¼ë¡œ
+	public float Damage => GameManager.Instance.player.damage + damage;
+
+	// íŒ¨ì‹œë¸Œ ìŠ¤í‚¬ë„ ìƒê²¼ê¸° ë•Œë¬¸ì— abstract UseSkillì€ ì‚­ì œí•¨
 }

@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   damage: 1
-  moveSpeed: 0
+  moveSpeed: 3
   damageInterval: 1
   hpBar: {fileID: 4790294744894253439}
   player: {fileID: 0}

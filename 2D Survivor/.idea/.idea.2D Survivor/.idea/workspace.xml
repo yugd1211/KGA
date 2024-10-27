@@ -5,11 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d53445e-a492-49c5-b92a-5cd452a88320" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dokdo-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dokdo-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv0.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv0.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv0.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv0.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/MissileProjectile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/MissileProjectile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/Projectile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/Projectile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/TestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Characters/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Characters/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/HUD.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/HUD.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserGun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserGun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserShotgun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserShotgun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissileProjectile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissileProjectile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserGun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserGun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Skill.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/SkillSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/SkillSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Super Confetti FX/Upgrade/Super Confetti FX URP (2019.4 LTS).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +70,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Passive/ProjectileCountUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -27,22 +87,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2D__Survivor",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2D__Survivor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;indent.rainbow.settings.IrConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/gyyu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/gyyu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/gyyu/Library/Application Support/Symbols/src&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Documents/2022.3.50f1-arm64/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\dbrud\source\repos\KGA\2D Survivor&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\dbrud\source\repos\KGA\2D Survivor" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -50,7 +119,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Documents/2022.3.50f1-arm64/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\dbrud\source\repos\KGA\2D Survivor&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\dbrud\source\repos\KGA\2D Survivor" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -89,12 +158,15 @@
       <workItem from="1729962748565" duration="14000" />
       <workItem from="1729962789490" duration="257000" />
       <workItem from="1729963065004" duration="951000" />
+      <workItem from="1730017906998" duration="6568000" />
+      <workItem from="1730024898965" duration="2228000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -104,5 +176,6 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

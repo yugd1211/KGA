@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,27 @@ public class Player : MonoBehaviour
 	public float moveSpeed = 5f;
 	public Vector2 fireDir;
 	public Vector2 moveDir;
-	public float fireInterval;
-	public bool isFire;
+	public float interval;
+	public int projectileCount;
+	public int pierceCount;
 
 	public Animator IndicatorAnim;
 	public Animator anim;
 	public SkillSlot[] skillSlots;
 
 	public int Level => level + 1;
-	public float Damage { get { return damage * Level; } }
+
+	public float Damage => damage;
+	// public float Damage { get { return damage * Level; } }
 	public int KillCount { get; set; }
 	public int TotalKillCount { get; set; }
 	public float hpAmount { get { return hp / maxHp; } }
 
 	public int exp = 0;
 	private int level = 0;
-	private int[] levelupSteps = { 100, 300, 500, 800, 1200 }; // ÃÖ´ë ·¹º§ 5
+	private List<int> levelupSteps = new List<int> { 100, 300, 500, 800, 1200 }; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ 5
 	private int currentMaxExp => levelupSteps[level];
-	// ÇöÀç ·¹º§¿¡¼­ ·¹º§¾÷ ÇÏ±â±îÁö ÇÊ¿äÇÑ °æÇèÄ¡·®
 	private float maxHp;
-	//private Coroutine fireCoroutine;
 	private Rigidbody2D rb;
 
 	private void Awake()
@@ -38,7 +40,6 @@ public class Player : MonoBehaviour
 		foreach (SkillSlot skillSlot in skillSlots)
 		{
 			skillSlot.CreatePrefab(transform);
-
 		}
 	}
 
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
 		Enemy targetEnemy = null;
 		float minDistance = float.MaxValue;
 
-		// Á¦ÀÏ °¡±î¿î ÀûÀÇ À§Ä¡¸¦ ¹Þ¾Æ ¹æÇâÀ» Á¤ÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		foreach (Enemy enemy in GameManager.Instance.enemies)
 		{
 			float distance = Vector3.Distance(transform.position, enemy.transform.position);
@@ -76,18 +77,19 @@ public class Player : MonoBehaviour
 		}
 		if (targetEnemy != null)
 			fireDir = targetEnemy.transform.position - transform.position;
-
-
+	}
+	private void FixedUpdate()
+	{
 		Move(moveDir);
 	}
 
-	// ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ½ºÅ³ÀÇ ·¹º§À» »ó½Â½ÃÅ°°í ´ÙÀ½·¹º§ÀÇ ÇÁ¸®ÆÕÀ¸·Î ±³Ã¼
+	// ï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 	public void OnSkillLevelUp(SkillSlot skillSlot)
 	{
 		if (skillSlot.skillLevel >= skillSlot.skillPrefabs.Length - 1)
 		{
-			// À¯È¿ÇÏÁö ¾ÊÀº ½ºÅ³
-			Debug.LogWarning($"ÃÖ´ë ·¹º§¿¡ µµ´ÞÇÑ ½ºÅ³ ·¹º§¾÷À» ½ÃµµÇÔ. {skillSlot.skillName}");
+			// ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+			Debug.LogWarning($"ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½. {skillSlot.skillName}");
 			return;
 		}
 		skillSlot.skillLevel++;
@@ -107,9 +109,9 @@ public class Player : MonoBehaviour
 
 
 	/// <summary>
-	///	TransformÀ» ÅëÇØ °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ¿òÁ÷ÀÌ´Â ÇÔ¼ö
+	///	Transformï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ô¼ï¿½
 	/// </summary>
-	/// <param name="dir">ÀÌµ¿ ¹æÇâ</param>
+	/// <param name="dir">ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½</param>
 	public void Move(Vector2 dir)
 	{
 		//transform.Translate(dir * moveSpeed * Time.deltaTime);
@@ -127,19 +129,19 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
-			// ÇØ´ç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÁøÇàÁßÀÌ¸é Æ®¸®°Å¸¦ ¹ß»ý½ÃÅ°Áö ¾ÊÀ½
+			// ï¿½Ø´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Æ®ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ß»ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			//AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
 			//if (info.IsName("Hit") == false)
 
-			// ÇöÀç´Â ÇÇ°Ý¾Ö´Ï¸ÞÀÌ¼Ç -> ÇÇ°Ý¾Ö´Ï¸ÞÀÌ¼ÇÀ¸·Î °¡´Â TransitionÀ» HitTrigger·Î ¼³Á¤Çß°í HasExitTimeÀ» Ã¼Å© ÇØÁ¦ÇØ¼­ HitÇÏ¸é ¹Ù·Î¹Ù·Î
-			// ÇØ´ç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ½ÇÇàµÇ°Ô²û Çß´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°Ý¾Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ -> ï¿½Ç°Ý¾Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Transitionï¿½ï¿½ HitTriggerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ HasExitTimeï¿½ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ Hitï¿½Ï¸ï¿½ ï¿½Ù·Î¹Ù·ï¿½
+			// ï¿½Ø´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°Ô²ï¿½ ï¿½ß´ï¿½.
 			anim.SetTrigger("Hit");
 		}
 	}
 
 	public void Die()
 	{
-		// GameManagerÀÇ ¿ªÇÒ
+		// GameManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		// Time.timeScale = 0;
 		// Destroy(gameObject);
 	}
@@ -154,7 +156,12 @@ public class Player : MonoBehaviour
 	public void GainExp(int exp)
 	{
 		this.exp += exp;
-		if (level < levelupSteps.Length && this.exp >= currentMaxExp)
+		if (level >= levelupSteps.Count)
+		{
+			int lastLevel = level - 1;
+			levelupSteps.Add(levelupSteps[lastLevel] + levelupSteps[lastLevel] - levelupSteps[lastLevel - 1] + 100);
+		}
+		if (level < levelupSteps.Count && this.exp >= currentMaxExp)
 		{
 			OnLevelUp();
 		}
@@ -175,19 +182,19 @@ public class Player : MonoBehaviour
 			item.Contact();
 		}
 
-		// Æ¯Á¤ Å¬·¡½º¸¦ »ó¼ÓÇÏÁö ¾Ê°í, °øÅëÁ¡ÀÌ ¾ø´Â ¿©·¯ °´Ã¼µéÀÌ °æ¿ì¿¡ µû¶ó °°Àº Çàµ¿À» ÇØ¾ß ÇÒ °æ¿ì
-		// Interface¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+		// Æ¯ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ï¿½ï¿½ ï¿½Ø¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
+		// Interfaceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
 		//if (collision.TryGetComponent<IContactable>(out IContactable contactable))
 		//{
 		//	contactable.Contact();
 		//}
 
-		// °ÔÀÓ ¿ÀºêÁ§Æ®´Â ¸ðµÎ SendMessage¸¦ ÅëÇØ °¡Áö°í ÀÖ´Â ÄÄÆ÷³ÍÆ®ÀÇ Æ¯Á¤ ÀÌ¸§À» °¡Áø ÇÔ¼ö¸¦ È£ÃâÇÏµµ·Ï ÇÏ´Â ±â´ÉÀ» Áö¿øÇÑ´Ù.	
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ SendMessageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.	
 		//collision.SendMessage("Contact", SendMessageOptions.DontRequireReceiver);
-		// SendMessage »ç¿ë½Ã ÁÖÀÇÁ¡
-		// 1. ¹®ÀÚ¿­·Î ÇÔ¼ö¸¦ È£ÃâÇÏ¹Ç·Î ÇÔ¼ö ÀÌ¸§ º¯°æ ¶Ç´Â ¿ÀÅ¸ ¹ß»ý ½Ã ¿¡·¯ Ã£±â°¡ Èûµé´Ù.
-		// 2. ÇØ´ç °´Ã¼¿¡ ÀÖ´Â ¸ðµç ÄÄÆ÷³ÍÆ®µéÀÌ Contact¶ó´Â ÇÔ¼ö¸¦ °¡Áö°í ÀÖ´ÂÁö Å½»öÀ» ¼öÇàÇÏ±â ¶§¹®¿¡ ÆÛÆ÷¸Õ½º°¡ È¿À²ÀûÀÌ¶ó°í º¸±â Èûµé´Ù.
-		// 3. È£ÃâÇÒ ÇÔ¼öÀÇ ÆÄ¶ó¹ÌÅÍ´Â 0°³ ¶Ç´Â 1°³·Î Á¦ÇÑµÈ´Ù. 
+		// SendMessage ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// 1. ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½Ô¼ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½Å¸ ï¿½ß»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// 2. ï¿½Ø´ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Contactï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// 3. È£ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í´ï¿½ 0ï¿½ï¿½ ï¿½Ç´ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÑµÈ´ï¿½. 
 	}
 
 }

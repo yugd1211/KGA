@@ -917,7 +917,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.61
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1137,7 +1137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &825239632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1332,9 +1332,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 894868491}
-  - component: {fileID: 894868492}
   - component: {fileID: 894868493}
   - component: {fileID: 894868494}
+  - component: {fileID: 894868492}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1373,18 +1373,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   damage: 5
-  moveSpeed: 10
-  projectilePrefab: {fileID: 9035798082683453749, guid: b1f34c4b85b0d09429334cf23df18257, type: 3}
+  moveSpeed: 5
   fireDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
-  fireInterval: 0.2
-  isFire: 0
+  interval: 0
+  projectileCount: 0
+  pierceCount: 0
   IndicatorAnim: {fileID: 564710739}
   anim: {fileID: 448251078}
   skillSlots:
   - skillName: LaserGun
     interval: 1
-    skillLevel: 0
+    skillLevel: 1
     isTargeting: 0
     skillPrefabs:
     - {fileID: 2113807689682527840, guid: 675dec10119dd5b4f9b57be20d0a85d8, type: 3}
@@ -1392,6 +1392,7 @@ MonoBehaviour:
     - {fileID: 2113807689682527840, guid: a2b124895fc515a4386f7dccb9280105, type: 3}
     - {fileID: 2113807689682527840, guid: 7340991c14c1f684eaef232a3d84c8c7, type: 3}
     - {fileID: 2113807689682527840, guid: 52401f98f5b227e4a94dfc661cf44d1d, type: 3}
+    - {fileID: 2113807689682527840, guid: 867145ac02e314f77bdec2fc7ef33f64, type: 3}
     currentSkillOjbect: {fileID: 0}
   - skillName: LaserShotgun
     interval: 1
@@ -1403,6 +1404,55 @@ MonoBehaviour:
     - {fileID: 1493601104020422293, guid: 176a04eabef414b47be29c3ad6fd8be4, type: 3}
     - {fileID: 1493601104020422293, guid: 20306ac39a22c2f4c887821e184903ca, type: 3}
     - {fileID: 1493601104020422293, guid: 86f829c4a4e9dfb45a07a68d0c86463f, type: 3}
+    - {fileID: 1493601104020422293, guid: 7448b5bf5a88a44eca529f1ba9c50aeb, type: 3}
+    currentSkillOjbect: {fileID: 0}
+  - skillName: Missile
+    interval: 1
+    skillLevel: 0
+    isTargeting: 0
+    skillPrefabs:
+    - {fileID: 1090888871428192904, guid: d637563a114a64a61bd02b381671c434, type: 3}
+    - {fileID: 1090888871428192904, guid: aa855204f0663423f99cdf3619fb37b0, type: 3}
+    - {fileID: 1090888871428192904, guid: 24479940fe61249c19e39c905c767994, type: 3}
+    - {fileID: 1090888871428192904, guid: 68fa320debabb4890b11d0212b01d075, type: 3}
+    - {fileID: 1090888871428192904, guid: 2e14eef4eb03e401f91a6c037ddb16d4, type: 3}
+    - {fileID: 1090888871428192904, guid: 360907c0284cd49a586d62f5714ef1f5, type: 3}
+    currentSkillOjbect: {fileID: 0}
+  - skillName: DamageUp
+    interval: 0
+    skillLevel: 0
+    isTargeting: 0
+    skillPrefabs:
+    - {fileID: 7647365032986021825, guid: 39cf83e1c456940cbb112b5c14a09c56, type: 3}
+    - {fileID: 7647365032986021825, guid: 11db5f69639e94ce9a61b99e34d56c1e, type: 3}
+    - {fileID: 7647365032986021825, guid: d08464f461ab24d23afe119e3bc742ac, type: 3}
+    - {fileID: 7647365032986021825, guid: 57210eb72cf7540a88dab50a99b6e40c, type: 3}
+    - {fileID: 7647365032986021825, guid: 177e271091e614871be18a622f9a4184, type: 3}
+    - {fileID: 7647365032986021825, guid: c862c2b89b80c4b4ebd72666b8316850, type: 3}
+    currentSkillOjbect: {fileID: 0}
+  - skillName: ProjectileCountUp
+    interval: 0
+    skillLevel: 0
+    isTargeting: 0
+    skillPrefabs:
+    - {fileID: 5119325366175615188, guid: aea7ee095f2364a1aa11ba385dd00543, type: 3}
+    - {fileID: 5119325366175615188, guid: 318b6b6428d3d45b4a803dda13c0a018, type: 3}
+    - {fileID: 5119325366175615188, guid: 15a8e435ababc4c09b362d454f42dc96, type: 3}
+    - {fileID: 5119325366175615188, guid: e8c467c2ef725416294a9b88f306370e, type: 3}
+    - {fileID: 5119325366175615188, guid: 8db96bdd6587145709c3b55066d3b230, type: 3}
+    - {fileID: 5119325366175615188, guid: 447d6f146d17541d7a0dcd03c0cbe7af, type: 3}
+    currentSkillOjbect: {fileID: 0}
+  - skillName: PierceCountUp
+    interval: 0
+    skillLevel: 0
+    isTargeting: 0
+    skillPrefabs:
+    - {fileID: 4128177589270154973, guid: b59103d99193d49b1877692c87b8d083, type: 3}
+    - {fileID: 4128177589270154973, guid: 831e03ddfc18748129ff08a4aa75da14, type: 3}
+    - {fileID: 4128177589270154973, guid: a8d7d9fb06df442f98a939bac06eadb0, type: 3}
+    - {fileID: 4128177589270154973, guid: 28ce5a436f49843719efbd62b5a828f6, type: 3}
+    - {fileID: 4128177589270154973, guid: c8ffee2aede274acea1694f48be3d385, type: 3}
+    - {fileID: 4128177589270154973, guid: 932258e71dc824687aad27a87d9241a3, type: 3}
     currentSkillOjbect: {fileID: 0}
   exp: 0
 --- !u!58 &894868493
@@ -1592,8 +1642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976076345}
   - component: {fileID: 976076348}
-  - component: {fileID: 976076347}
-  - component: {fileID: 976076346}
+  - component: {fileID: 976076349}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1616,55 +1665,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1047821073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &976076346
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976076344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
---- !u!114 &976076347
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976076344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
 --- !u!114 &976076348
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1677,6 +1677,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &976076349
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976076344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 2
+  m_LookaheadIgnoreY: 0
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_TargetMovementOnly: 1
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_CameraDistance: 10
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.2
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 0
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 5000
 --- !u!1 &985924182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,7 +1888,7 @@ MonoBehaviour:
   m_Follow: {fileID: 894868491}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.61
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3102,7 +3145,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840360085}
-  - component: {fileID: 1840360084}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -3110,25 +3152,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1840360084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840360083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fa54a7cc8dd2e418fef83cf0dec67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHPBar: {fileID: 842174879}
-  playerKillCount: {fileID: 62566005}
-  levelText: {fileID: 1575877035}
-  expText: {fileID: 1932247147}
-  damageText: {fileID: 1555520090}
-  hpText: {fileID: 1178447101}
-  player: {fileID: 0}
 --- !u!4 &1840360085
 Transform:
   m_ObjectHideFlags: 0

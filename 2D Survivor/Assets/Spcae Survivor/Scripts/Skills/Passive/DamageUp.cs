@@ -1,0 +1,1 @@
+using System;using System.Collections;using System.Collections.Generic;using UnityEngine;public class DamageUp : Skill{	private void Start() 	{		GameManager.Instance.player.damage += damage;	}	private void OnDisable()	{		GameManager.Instance.player.damage -= damage;	}}

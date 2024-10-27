@@ -19,12 +19,10 @@ public class UIManager : SingletonManager<UIManager>
 	public TextMeshProUGUI damageText;
 	public TextMeshProUGUI hpText;
 
-	protected override void Awake()
-	{
-		base.Awake();
-	}
+	
+	private bool isPaused = false;
 
-	//Reset ¸Þ½ÃÁö ÇÔ¼ö : ÄÄÆ÷³ÍÆ®°¡ Ã³À½ ºÎÂøµÇ°Å³ª ÄÄÆ÷³ÍÆ® ¸Þ´ºÀÇ ResetÀ» ¼±ÅÃÇÒ °æ¿ì È£Ãâ
+	//Reset ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ´ï¿½ï¿½ï¿½ Resetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È£ï¿½ï¿½
 	private void Reset()
 	{
 		mainCanvas = GetComponent<Canvas>();
@@ -39,24 +37,21 @@ public class UIManager : SingletonManager<UIManager>
 		levelupPanel.gameObject.SetActive(false);
 	}
 
-	bool isPaused = false;
 
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			isPaused = !isPaused;
-			pausePanel.SetActive(isPaused);
+			pausePanel.SetActive(isPaused = !isPaused);
 			Time.timeScale = isPaused ? 0 : 1;
 		}
 
 		playerHPBar.fillAmount = GameManager.Instance.player.hpAmount;
-		killCount.text = $"Å³ ¼ö : {GameManager.Instance.player.KillCount.ToString()}";
-		totalKillCount.text = $"Á¾ÇÕ Å³ ¼ö : {GameManager.Instance.player.TotalKillCount.ToString()}";
-		levelText.text = $"Level : {GameManager.Instance.player.Level.ToString()}";
-		expText.text = $"Exp : {GameManager.Instance.player.exp.ToString()}";
-		damageText.text = $"Damage : {GameManager.Instance.player.Damage.ToString()}";
-		hpText.text = $"HP : {GameManager.Instance.player.hp.ToString()}";
+		killCount.text = $"í‚¬ ìˆ˜ : {GameManager.Instance.player.KillCount}";
+		totalKillCount.text = $"ì¢…í•© í‚¬ ìˆ˜ : {GameManager.Instance.player.TotalKillCount}";
+		levelText.text = $"Level : {GameManager.Instance.player.Level}";
+		expText.text = $"Exp : {GameManager.Instance.player.exp}";
+		damageText.text = $"Damage : {GameManager.Instance.player.Damage}";
+		hpText.text = $"HP : {GameManager.Instance.player.hp}";
 	}
-
 }
