@@ -20,7 +20,7 @@ public class LaserShotgun : LaserGun
 		transform.up = GameManager.Instance.player.fireDir;
 		for (int i = 0; i < count; i++)
 		{
-			Projectile proj = PoolManager.Instance.projectilePool.Pop();
+			Projectile proj = PoolManager.Instance.Get<Projectile>();
 			proj.gameObject.SetActive(true);
 			proj.transform.position = transform.position;
 			proj.damage = Damage;

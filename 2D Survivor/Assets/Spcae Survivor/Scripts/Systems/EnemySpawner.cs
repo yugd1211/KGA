@@ -27,7 +27,8 @@ public class EnemySpawner : MonoBehaviour
 			Vector2 playerPos = GameManager.Instance.player.transform.position;
 			Vector2 spawnPos = Random.insideUnitCircle.normalized * Random.Range(minMaxDist.x, minMaxDist.y);
 
-			Enemy e = PoolManager.Instance.enemyPool.Pop();
+			// Enemy e = PoolManager.Instance.enemyPool.Pop();
+			Enemy e = PoolManager.Instance.Get<Enemy>();
 			e.gameObject.SetActive(true);
 			e.transform.position = playerPos + spawnPos;
 			e.transform.SetParent(transform);

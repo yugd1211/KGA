@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class Missile : Skill
 {
-	public Transform target;
 	public MissileProjectile projectilePrefab;
 
 	public int projectileCount;
@@ -17,6 +16,7 @@ public class Missile : Skill
 	private void Start()
 	{
 		_ = StartCoroutine(FireCoroutine());
+		PoolManager.Instance.CreatePool(projectilePrefab);
 	}
 
 	private IEnumerator FireCoroutine()
@@ -34,7 +34,8 @@ public class Missile : Skill
 	private void Fire()
 	{
 		Vector2 pos = (Vector2)transform.position + Random.insideUnitCircle.normalized * maxDist;
-		MissileProjectile proj = Instantiate(projectilePrefab, pos, Quaternion.identity);
+		MissileProjectile proj = PoolManager.Instance.Get<MissileProjectile>();
+		proj.transform.position = pos;
 		proj.damage = Damage;
 		proj.duration = 1 / projectileSpeed;
 		//proj.transform.position = transform.position;

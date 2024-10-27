@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 	private void Start()
 	{
 		player = GameManager.Instance.player;
+		PoolManager.Instance.CreatePool(impactParticle);
 	}
 
 	private void OnEnable()
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour
 	{
 		Vector2 moveDir = player.transform.position - transform.position;
 		moveDir = moveDir.normalized;
-		// imageÀÇ imagetypeÀÌ filled¿©¾ß °¡´ÉÇÑ ÇÊµå
+		// imageï¿½ï¿½ imagetypeï¿½ï¿½ filledï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½
 		hpBar.fillAmount = hpAmount;
 		Move(moveDir);
 	}
@@ -63,12 +64,13 @@ public class Enemy : MonoBehaviour
 
 	private void Die()
 	{
-		GameManager.Instance.enemies.Remove(this);
 		GameManager.Instance.enemyAllKillEvent -= Die;
+		GameManager.Instance.enemies.Remove(this);
 		GameManager.Instance.player.KillCount++;
 		GameManager.Instance.player.TotalKillCount++;
 		GameManager.Instance.itemSpawner.SpawnExp(transform.position);
-		PoolManager.Instance.enemyPool.Push(this);
+		PoolManager.Instance.Remove(this);
+		// PoolManager.Instance.enemyPool.Push(this);
 	}
 
 
@@ -76,12 +78,21 @@ public class Enemy : MonoBehaviour
 	{
 		if (other.transform.CompareTag("Player"))
 		{
-			var particle = Instantiate(impactParticle, other.GetContact(0).point, Quaternion.identity);
+			ParticleSystem particle = Instantiate(impactParticle);
+			// ParticleSystem particle = PoolManager.Instance.Get<ParticleSystem>();
+			particle.gameObject.SetActive(true);
+			particle.transform.position = other.GetContact(0).point;
 			particle.Play();
+			// _ = StartCoroutine(DistroyCoroutine(particle));
 			Destroy(particle.gameObject, 2f);
 			attackCoroutine = StartCoroutine(AttackCoroutine(other));
 		}
+	}
 
+	private IEnumerator DistroyCoroutine(ParticleSystem particle)
+	{
+		yield return new WaitForSeconds(2f);
+		PoolManager.Instance.Remove(particle);
 	}
 
 	private void OnCollisionExit2D(Collision2D other)

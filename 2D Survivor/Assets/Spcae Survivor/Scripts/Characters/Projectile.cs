@@ -19,38 +19,22 @@ public class Projectile : MonoBehaviour
 	private void Awake()
 	{
 		coll = GetComponent<CircleCollider2D>();
-		coll.enabled = false;
+		// coll.enabled = false;
 	}
 
-	private void OnEnable() // startº¸´Ù ¸ÕÀú ½ÇÇàµÊ
+	private void OnEnable() // startï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		//LeanPool.Despawn(this, duration); // 3ÃÊ µÚ¿¡ Ç®·Î µ¹¾Æ°¨
+		//LeanPool.Despawn(this, duration); // 3ï¿½ï¿½ ï¿½Ú¿ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 		StartCoroutine(PushDelay(duration));
 	}
 
 
 	List<Collider2D> contactedColls = new List<Collider2D>();
-	// OverlapCircle ÇÔ¼ö¸¦ ÅëÇØ °¨ÁöÇÑ ÀûÀÌ ÀÖ´Â ÄÝ¶óÀÌ´õ¸¦ ´ãÀ» List
+	// OverlapCircle ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ List
 
 	private void Update()
 	{
 		Move(Vector2.up);
-
-		Collider2D contactedColl = Physics2D.OverlapCircle(transform.position, coll.radius);
-		if (contactedColl && contactedColl.CompareTag("Enemy"))
-		{
-			if (contactedColls.Contains(contactedColl) == false)
-			{
-				// À¯È¿Å¸ ¹ß»ý
-				contactedColls.Add(contactedColl);
-				pierceCount--;
-				contactedColl.GetComponent<Enemy>()?.TakeDamage(damage);
-				if (pierceCount == 0)
-				{
-					PoolManager.Instance.projectilePool.Push(this);
-				}
-			}
-		}
 	}
 
 	public void Move(Vector2 dir)
@@ -63,16 +47,26 @@ public class Projectile : MonoBehaviour
 	{
 		if (other.transform.CompareTag("Enemy"))
 		{
-			other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-			Bounds myBound = GetComponent<Collider2D>().bounds;
+			// other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+			// ParticleSystem p = Instantiate(impactParticle, transform.position, Quaternion.identity);
+			// p.Play();
+			pierceCount--;
 			ParticleSystem p = Instantiate(impactParticle, transform.position, Quaternion.identity);
+			other.GetComponent<Enemy>()?.TakeDamage(damage);
 			p.Play();
+			Destroy(p, 2f);
+			if (pierceCount == 0)
+			{
+				PoolManager.Instance.Remove(this);
+				// PoolManager.Instance.projectilePool.Push(this);
+			}
 		}
 	}
 	private IEnumerator PushDelay(float delay)
 	{
 		yield return new WaitForSeconds(delay);
-		PoolManager.Instance.projectilePool.Push(this);
+		// PoolManager.Instance.projectilePool.Push(this);
+		PoolManager.Instance.Remove(this);
 	}
 
 	private void OnDisable()

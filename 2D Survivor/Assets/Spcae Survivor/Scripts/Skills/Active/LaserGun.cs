@@ -44,7 +44,8 @@ public class LaserGun : Skill
 	{
 		//transform.up = dir;
 		transform.up = GameManager.Instance.player.fireDir;
-		Projectile projectile = PoolManager.Instance.projectilePool.Pop();
+		// Projectile projectile = PoolManager.Instance.projectilePool.Pop();
+		Projectile projectile = PoolManager.Instance.Get<Projectile>();
 		projectile.gameObject.SetActive(true);
 		projectile.transform.position = transform.position;
 		projectile.damage = Damage;

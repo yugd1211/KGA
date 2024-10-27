@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class ObjectPool<T> where T : MonoBehaviour
+public class ObjectPool<T> where T : Component
 {
 	private List<T> pool = new();
 	public T prefab;
@@ -13,8 +13,6 @@ public class ObjectPool<T> where T : MonoBehaviour
 		pool.Add(item);
 		for (int i = 0; i < PoolManager.Instance.gameObjectPools.Count; i++)
 		{
-			//item.name.Substring
-			//Debug.Log(item.name.Replace("(Clone)", "").Trim()) + ":" + PoolManager.Instance.gameObjectPools[i].name + ":");
 			if (item.name.Replace("(Clone)", "").Trim() == PoolManager.Instance.gameObjectPools[i].name)
 			{
 				item.transform.SetParent(PoolManager.Instance.gameObjectPools[i], false);
