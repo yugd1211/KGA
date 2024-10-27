@@ -5,62 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d53445e-a492-49c5-b92a-5cd452a88320" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2D Survivor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dokdo-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dokdo-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv0.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv0.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun Lv4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserGun.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv0.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv0.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun Lv4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/LaserShotgun.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/MissileProjectile.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/MissileProjectile.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/Projectile.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Prefabs/Weapon/Projectile.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scenes/TestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Characters/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Characters/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/HUD.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/HUD.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserGun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserGun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserShotgun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LLaserShotgun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissile.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissileProjectile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Laser/LMissileProjectile.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserGun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserGun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/LaserShotgun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/SkillSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/SkillSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +18,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/gyyu/Development/GyungIl/KGA/2D Survivor/Assets/Dokdo-Regular SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Skills/Passive/ProjectileCountUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spcae Survivor/Scripts/Systems/UI/StatusPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -98,7 +47,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;indent.rainbow.settings.IrConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -159,7 +108,8 @@
       <workItem from="1729962789490" duration="257000" />
       <workItem from="1729963065004" duration="951000" />
       <workItem from="1730017906998" duration="6568000" />
-      <workItem from="1730024898965" duration="2228000" />
+      <workItem from="1730024898965" duration="3070000" />
+      <workItem from="1730028299311" duration="2670000" />
     </task>
     <servers />
   </component>
@@ -177,5 +127,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
