@@ -3,52 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
-// ±âº»ÀûÀÎ °´Ã¼ÁöÇâÇü ¾ğ¾î¿¡¼­ ½Ì±ÛÅæ °´Ã¼¸¦ ¸¸µå´Â ¹æ¹ı
-// °ÔÀÓ ÀüÃ¼ ÁøÇàÀ» ÃÑ°ıÇÏ´Â ¿ÀºêÁ§Æ®
+// ê¸°ë³¸ì ì¸ ê°ì²´ì§€í–¥í˜• ì–¸ì–´ì—ì„œ ì‹±ê¸€í†¤ ê°ì²´ë¥¼ ë§Œë“œëŠ” ë°©ë²•
+// ê²Œì„ ì „ì²´ ì§„í–‰ì„ ì´ê´„í•˜ëŠ” ì˜¤ë¸Œì íŠ¸
 public class GameManager : MonoBehaviour
 {
-	private static GameManager instance;
-	public static GameManager Instance => instance;
-	private GameManager() {/* »ı¼ºÀÚ¸¦ private·Î ¼±¾ğÇÏ¿© ¿ÜºÎ¿¡¼­ »ı¼ºÀ» ¸·´Â´Ù. */}
+    private static GameManager instance;
+    public static GameManager Instance => instance;
+    private GameManager() {/* ìƒì„±ìë¥¼ privateë¡œ ì„ ì–¸í•˜ì—¬ ì™¸ë¶€ì—ì„œ ìƒì„±ì„ ë§‰ëŠ”ë‹¤. */}
 
-	internal List<Enemy> enemies = new List<Enemy>();
-	internal Player player;
-	internal event Action enemyAllKillEvent;
-	internal ItemSpawner itemSpawner;
+    internal List<Enemy> enemies = new List<Enemy>();
+    internal Player player;
+    internal event Action enemyAllKillEvent;
+    internal ItemSpawner itemSpawner;
 
-	// À¯´ÏÆ¼¿¡¼­ ½Ì±ÛÅæ ÆĞÅÏÀ» Àû¿ëÇÏ´Â ¹æ¹ı
-	private void Awake()
-	{
-		if (instance != null)
-		{
-			DestroyImmediate(this);
-			return;
-		}
-		instance = this;
-		DontDestroyOnLoad(gameObject);
-	}
+    // ìœ ë‹ˆí‹°ì—ì„œ ì‹±ê¸€í†¤ íŒ¨í„´ì„ ì ìš©í•˜ëŠ” ë°©ë²•
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
-	public void TimeStop()
-	{
-		Time.timeScale = 0;
-	}
+    public void TimeStop()
+    {
+        Time.timeScale = 0;
+    }
 
-	public void TimeResume()
-	{
-		Time.timeScale = 1;
-	}
-	private void Start()
-	{
-		itemSpawner = FindObjectOfType<ItemSpawner>();
-	}
+    public void TimeResume()
+    {
+        Time.timeScale = 1;
+    }
 
-	public void EnemyAllKill()
-	{
-		enemyAllKillEvent?.Invoke();
-		//List<Enemy> snapshot = new List<Enemy>(enemies);
-		//foreach (Enemy enemy in snapshot)
-		//	enemy.TakeDamage(enemy.hp + 1);
-	}
+
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+
+            itemSpawner = FindObjectOfType<ItemSpawner>();
+        };
+    }
+
+    public void EnemyAllKill()
+    {
+        enemyAllKillEvent?.Invoke();
+    }
+
+    public void GameOver()
+    {
+        GameOverSceneCtrl.killCount = player.KillCount;
+        EnemyAllKill();
+        enemies.Clear();
+        DataManager.Instance.OnSave();
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("GameScene");
+        UIManager.Instance.OnReStart();
+    }
+
+    public void SceneChange(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

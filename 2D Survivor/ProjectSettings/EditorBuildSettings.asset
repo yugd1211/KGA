@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Spcae Survivor/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Spcae Survivor/Scenes/GameOverScene.unity
+    guid: c067dea16ed2afe4189769f14ba94de9
+  - enabled: 1
+    path: Assets/Spcae Survivor/Scenes/GameStartScene.unity
+    guid: 9ee75de5adb465647a2966c4b414fd0a
   m_configObjects: {}

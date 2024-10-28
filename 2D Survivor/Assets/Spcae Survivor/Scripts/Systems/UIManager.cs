@@ -7,51 +7,57 @@ using System;
 
 public class UIManager : SingletonManager<UIManager>
 {
-	public Canvas mainCanvas;
-	public GameObject pausePanel;
-	public SkillLevelUpPanel levelupPanel;
+    public Canvas mainCanvas;
+    public GameObject pausePanel;
+    public SkillLevelUpPanel levelupPanel;
 
-	public Image playerHPBar;
-	public TextMeshProUGUI killCount;
-	public TextMeshProUGUI totalKillCount;
-	public TextMeshProUGUI levelText;
-	public TextMeshProUGUI expText;
-	public TextMeshProUGUI damageText;
-	public TextMeshProUGUI hpText;
-
-
-	private bool isPaused = false;
-
-	//Reset 占쌨쏙옙占쏙옙 占쌉쇽옙 : 占쏙옙占쏙옙占쏙옙트占쏙옙 처占쏙옙 占쏙옙占쏙옙占실거놂옙 占쏙옙占쏙옙占쏙옙트 占쌨댐옙占쏙옙 Reset占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占?호占쏙옙
-	private void Reset()
-	{
-		mainCanvas = GetComponent<Canvas>();
-		pausePanel = transform.Find("PausePanel").gameObject;
-		levelupPanel = transform.Find("LevelupPanel").GetComponent<SkillLevelUpPanel>();
-	}
+    public Image playerHPBar;
+    public TextMeshProUGUI killCount;
+    public TextMeshProUGUI totalKillCount;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI expText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI hpText;
 
 
-	private void Start()
-	{
-		pausePanel.SetActive(false);
-		levelupPanel.gameObject.SetActive(false);
-	}
+    private bool isPaused = false;
+
+    //Reset ?醫롫솭??덉굲?醫롫짗???醫롫셾??뚯굲 : ?醫롫짗??용쐻??덉굲?醫롫짗??됰뱜?醫롫짗??筌ｌ꼪???덉굲 ?醫롫짗??용쐻??덉굲?醫롫뼄椰꾧퀡????醫롫짗??용쐻??덉굲?醫롫짗??됰뱜 ?醫롫솭?癒?굲?醫롫짗??Reset?醫롫짗???醫롫짗??용쐻??덉굲?醫롫짗???醫롫짗??용쐻??硫⑤쐻??덉굲
+    private void Reset()
+    {
+        mainCanvas = GetComponent<Canvas>();
+        pausePanel = transform.Find("PausePanel").gameObject;
+        levelupPanel = transform.Find("LevelupPanel").GetComponent<SkillLevelUpPanel>();
+    }
 
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			pausePanel.SetActive(isPaused = !isPaused);
-			Time.timeScale = isPaused ? 0 : 1;
-		}
+    private void Start()
+    {
+        pausePanel.SetActive(false);
+        levelupPanel.gameObject.SetActive(false);
+    }
 
-		playerHPBar.fillAmount = GameManager.Instance.player.hpAmount;
-		killCount.text = $"????: {GameManager.Instance.player.KillCount}";
-		totalKillCount.text = $"醫낇빀 ????: {GameManager.Instance.player.TotalKillCount}";
-		levelText.text = $"Level : {GameManager.Instance.player.Level}";
-		expText.text = $"Exp : {GameManager.Instance.player.exp}";
-		damageText.text = $"Damage : {GameManager.Instance.player.Damage}";
-		hpText.text = $"HP : {GameManager.Instance.player.hp}";
-	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePanel.SetActive(isPaused = !isPaused);
+            Time.timeScale = isPaused ? 0 : 1;
+        }
+
+        playerHPBar.fillAmount = GameManager.Instance.player.hpAmount;
+        killCount.text = $"????: {GameManager.Instance.player.KillCount}";
+        totalKillCount.text = $"??リ턃?? ????: {GameManager.Instance.player.TotalKillCount}";
+        levelText.text = $"Level : {GameManager.Instance.player.Level}";
+        expText.text = $"Exp : {GameManager.Instance.player.exp}";
+        damageText.text = $"Damage : {GameManager.Instance.player.Damage}";
+        hpText.text = $"HP : {GameManager.Instance.player.hp}";
+    }
+
+
+    public void OnReStart()
+    {
+        Start();
+    }
 }

@@ -44,19 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af844270d5b9b5b4d88adac58bdd659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Laser Gun
   interval: 1
-  skillLevel: 0
-  isTargeting: 0
-  skillPrefabs:
-  - {fileID: 1917744797884365843, guid: 675dec10119dd5b4f9b57be20d0a85d8, type: 3}
-  - {fileID: 1917744797884365843, guid: 462e25591c45683418d3962600f31a71, type: 3}
-  - {fileID: 1917744797884365843, guid: a2b124895fc515a4386f7dccb9280105, type: 3}
-  - {fileID: 1917744797884365843, guid: 7340991c14c1f684eaef232a3d84c8c7, type: 3}
-  - {fileID: 1917744797884365843, guid: 52401f98f5b227e4a94dfc661cf44d1d, type: 3}
-  target: {fileID: 0}
   damage: 10
+  target: {fileID: 0}
   duration: 2
   moveSpeed: 15
   pierceCount: 2
   projectileCount: 1
+  fireAudioClip: {fileID: 8300000, guid: 8da0500fcd4eb914ea59c2a3bd7981a8, type: 3}

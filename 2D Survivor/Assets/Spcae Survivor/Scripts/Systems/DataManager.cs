@@ -2,42 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.TextCore.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : SingletonManager<DataManager>
 {
-	// PlayerPrefs : µğ¹ÙÀÌ½º¿¡ ÀúÀåµÈ °ÔÀÓ µ¥ÀÌÅÍ¸¦ ºÒ·¯¿À°Å³ª µğ¹ÙÀÌ½º¿¡ ÀúÀåÇÏ´Â ±â´É Á¦°ø
-	// ÁÖ·Î Á¤Àû ÇÔ¼ö¸¦ È£ÃâÇÏ¿© ±â´ÉÀ» È°¿ë ÇÑ´Ù.
-	int killCount;
+    // PlayerPrefs : ë””ë°”ì´ìŠ¤ì— ì €ì¥ëœ ê²Œì„ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜¤ê±°ë‚˜ ë””ë°”ì´ìŠ¤ì— ì €ì¥í•˜ëŠ” ê¸°ëŠ¥ ì œê³µ
+    // ì£¼ë¡œ ì •ì  í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ ê¸°ëŠ¥ì„ í™œìš© í•œë‹¤.
+    int killCount;
 
-	public bool clearPrefsOnStart = false;
+    public bool clearPrefsOnStart = false;
 
-	private IEnumerator Start()
-	{
-		if (clearPrefsOnStart) PlayerPrefs.DeleteAll();
-		yield return null;
-		OnLoad();
-	}
+    private IEnumerator Start()
+    {
+        if (clearPrefsOnStart) PlayerPrefs.DeleteAll();
+        yield return null;
+        OnLoad();
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            print($"ì”¬ ë¡œë“œë¨ ${scene.name}");
+            if (scene == SceneManager.GetSceneByName("GameScene"))
+                OnLoad();
+        };
+    }
 
-	public void OnSave()
-	{
-		int totalKillCount = GameManager.Instance.player.TotalKillCount;
+    public void OnSave()
+    {
+        int totalKillCount = GameManager.Instance.player.TotalKillCount;
 
-		// PlayerPrefsÀÇ Ä³½Ã¿¡ °ªÀ» ÀÔ·Â (key : string, value : int)
-		PlayerPrefs.SetInt("TotalKillCount", totalKillCount);
+        // PlayerPrefsì˜ ìºì‹œì— ê°’ì„ ì…ë ¥ (key : string, value : int)
+        PlayerPrefs.SetInt("TotalKillCount", totalKillCount);
 
-		// PlayerPrefsÀÇ °ªÀ» ÀúÀå
-		PlayerPrefs.Save();
-	}
+        // PlayerPrefsì˜ ê°’ì„ ì €ì¥
+        PlayerPrefs.Save();
+    }
 
-	public void OnLoad()
-	{
-		// ÇØ´ç key°ª¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾øÀ»¶§ÀÇ ±âº»°ªÀ» ÁöÁ¤ÇÒ ¼ö ÀÖ´Ù.
-		int totalKillCount = PlayerPrefs.GetInt("TotalKillCount", 0);
-		GameManager.Instance.player.TotalKillCount = totalKillCount;
-	}
+    public void OnLoad()
+    {
+        // í•´ë‹¹ keyê°’ì— ì €ì¥ëœ ë°ì´í„°ê°€ ì—†ì„ë•Œì˜ ê¸°ë³¸ê°’ì„ ì§€ì •í•  ìˆ˜ ìˆë‹¤.
+        int totalKillCount = PlayerPrefs.GetInt("TotalKillCount", 0);
+        GameManager.Instance.player.TotalKillCount = totalKillCount;
+    }
 
-	private void OnApplicationQuit()
-	{
-		OnSave();
-	}
+    private void OnApplicationQuit()
+    {
+        print("OnApplicationQuit");
+        OnSave();
+    }
 }

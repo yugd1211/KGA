@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 0
   damage: 10
-  target: {fileID: 0}
   projectilePrefab: {fileID: 674870874723971466, guid: 87c6ee22bc9479f4e8a70374e23d40ae, type: 3}
   projectileCount: 1
   projectileSpeed: 2
   projectileScale: 2
   maxDist: 5
+  fireAudioClip: {fileID: 8300000, guid: 663ddef64110778418d9bf60479090d7, type: 3}
