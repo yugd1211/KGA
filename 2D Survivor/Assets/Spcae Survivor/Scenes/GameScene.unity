@@ -673,6 +673,10 @@ MonoBehaviour:
   minMaxCount: {x: 1, y: 10}
   minMaxDist: {x: 5, y: 10}
   spawnRate: 2
+  enemyDatas:
+  - {fileID: 11400000, guid: a2dcefc03f246b34c8893b047d499340, type: 2}
+  - {fileID: 11400000, guid: 0977060219aaaef4f9e2af656260f5d1, type: 2}
+  - {fileID: 11400000, guid: 62e3656850831e348ac973e4e4dca47a, type: 2}
 --- !u!1 &404126989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,6 +1802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3313b39d39c42504daa290e1328721f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 93ac73ccab895cf478e6be328c99551c, type: 2}
   hp: 100
   damage: 5
   moveSpeed: 5
@@ -1881,6 +1886,7 @@ MonoBehaviour:
     - {fileID: 4128177589270154973, guid: c8ffee2aede274acea1694f48be3d385, type: 3}
     - {fileID: 4128177589270154973, guid: 932258e71dc824687aad27a87d9241a3, type: 3}
     currentSkillOjbect: {fileID: 0}
+  spriteRenderer: {fileID: 448251076}
   exp: 0
 --- !u!58 &894868493
 CircleCollider2D:

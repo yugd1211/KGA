@@ -6,14 +6,14 @@ public class PoolManager : MonoBehaviour
 {
 	private static PoolManager instance;
 	public static PoolManager Instance => instance;
-	
+
 	public Projectile projectilePrefab;
 	public Enemy enemyPrefab;
 	public ParticleSystem ParticlePrefab;
-	
+
 	public List<Transform> gameObjectPools;
-	
-	
+
+
 	private Dictionary<Type, object> pools = new Dictionary<Type, object>();
 
 	public void CreatePool<T>(T prefab) where T : Component
@@ -26,7 +26,7 @@ public class PoolManager : MonoBehaviour
 		GameObject newGO = new GameObject(typeof(T).ToString());
 		newGO.transform.SetParent(transform);
 		gameObjectPools.Add(newGO.transform);
-		pools.Add(typeof(T), new ObjectPool<T> {prefab = prefab});
+		pools.Add(typeof(T), new ObjectPool<T> { prefab = prefab });
 	}
 
 	public T Get<T>() where T : Component
@@ -35,7 +35,7 @@ public class PoolManager : MonoBehaviour
 			return ((ObjectPool<T>)pools[typeof(T)]).Pop();
 		return null;
 	}
-	
+
 	public T Get<T>(T item) where T : Component
 	{
 		if (pools.ContainsKey(typeof(T)))
@@ -52,7 +52,7 @@ public class PoolManager : MonoBehaviour
 		}
 		Debug.LogWarning($"Poolmanager {typeof(T)} is not create Pool {typeof(T).Name}");
 	}
-	
+
 	private void Awake()
 	{
 		if (instance != null)
@@ -65,6 +65,6 @@ public class PoolManager : MonoBehaviour
 
 		CreatePool(projectilePrefab);
 		CreatePool(enemyPrefab);
-		CreatePool(ParticlePrefab);
+		//CreatePool(ParticlePrefab);
 	}
 }

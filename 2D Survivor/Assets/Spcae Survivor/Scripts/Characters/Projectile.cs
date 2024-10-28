@@ -22,15 +22,15 @@ public class Projectile : MonoBehaviour
 		// coll.enabled = false;
 	}
 
-	private void OnEnable() // start���� ���� �����
+	private void OnEnable() // start占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占?
 	{
-		//LeanPool.Despawn(this, duration); // 3�� �ڿ� Ǯ�� ���ư�
+		//LeanPool.Despawn(this, duration); // 3占쏙옙 占쌘울옙 풀占쏙옙 占쏙옙占싣곤옙
 		StartCoroutine(PushDelay(duration));
 	}
 
 
 	List<Collider2D> contactedColls = new List<Collider2D>();
-	// OverlapCircle �Լ��� ���� ������ ���� �ִ� �ݶ��̴��� ���� List
+	// OverlapCircle 占쌉쇽옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쌍댐옙 占쌥띰옙占싱댐옙占쏙옙 占쏙옙占쏙옙 List
 
 	private void Update()
 	{
@@ -54,18 +54,16 @@ public class Projectile : MonoBehaviour
 			ParticleSystem p = Instantiate(impactParticle, transform.position, Quaternion.identity);
 			other.GetComponent<Enemy>()?.TakeDamage(damage);
 			p.Play();
-			Destroy(p, 2f);
+			Destroy(p.gameObject, 2f);
 			if (pierceCount == 0)
 			{
 				PoolManager.Instance.Remove(this);
-				// PoolManager.Instance.projectilePool.Push(this);
 			}
 		}
 	}
 	private IEnumerator PushDelay(float delay)
 	{
 		yield return new WaitForSeconds(delay);
-		// PoolManager.Instance.projectilePool.Push(this);
 		PoolManager.Instance.Remove(this);
 	}
 

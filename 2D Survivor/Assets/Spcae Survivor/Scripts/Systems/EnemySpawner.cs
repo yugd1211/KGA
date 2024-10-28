@@ -6,14 +6,14 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-	// 1. ���� �ѹ� ������ �� 1������ �ƴ϶� 2 ~ 10 ���� �����ϵ��� ����
-	// 2. �� ���� ��ġ�� Vector2.zero�� �ƴ�, �÷��̾� ���� Ư�� �Ÿ� �̻� ��ġ�� ����
-	[Tooltip("�ѹ��� ������ ���� ��.\nx : �ּ�, y : �ִ�")]
+	[Tooltip("?좎떬諭꾩삕?좎룞???좎룞?쇿뜝?숈삕?좎룞???좎룞?쇿뜝?숈삕 ?좎룞??\nx : ?좎뙇?쎌삕, y : ?좎뙇?먯삕")]
 	public Vector2Int minMaxCount;
-	[Tooltip("�ѹ��� ������ �� �÷��̾�κ����� �ּ�, �ִ� �Ÿ�\n.x : �ּ�, y : �ִ�")]
+	[Tooltip("?좎떬諭꾩삕?좎룞???좎룞?쇿뜝?숈삕?좎룞???좎룞???좎떆琉꾩삕?좎떛?듭삕鰲?좎룞?쇿뜝?숈삕???좎뙇?쎌삕, ?좎뙇?먯삕 ?좎떊紐뚯삕\n.x : ?좎뙇?쎌삕, y : ?좎뙇?먯삕")]
 	public Vector2 minMaxDist;
 
 	public float spawnRate = 1f;
+
+	public EnemyDataSO[] enemyDatas;
 
 	private void Start()
 	{

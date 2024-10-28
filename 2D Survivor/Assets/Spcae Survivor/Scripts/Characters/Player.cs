@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	public PlayerDataSO playerData;
 	public float hp = 100f;
 	public float damage = 10f;
 	public float moveSpeed = 5f;
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
 	public Animator IndicatorAnim;
 	public Animator anim;
 	public SkillSlot[] skillSlots;
+
+	public SpriteRenderer spriteRenderer;
 
 	public int Level => level + 1;
 
@@ -45,7 +48,19 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
+		hp = playerData.hp;
+		damage = playerData.damage;
+		moveSpeed = playerData.moveSpeed;
+		name = playerData.characterName;
 		maxHp = hp;
+		spriteRenderer.sprite = playerData.sprite;
+		print(spriteRenderer.sprite.name + " " + playerData.sprite.name);
+		// GameObject ?�성??비활?�화 : SetActive
+		// Componenet ?�성??비활?�화 : enabled
+		spriteRenderer.GetComponent<Rotater>().enabled = playerData.rotateRenderer;
+
+		Instantiate(playerData.startSkillPrefab, transform, false);
+
 		KillCount = 0;
 		GameManager.Instance.player = this;
 	}
@@ -65,7 +80,7 @@ public class Player : MonoBehaviour
 		Enemy targetEnemy = null;
 		float minDistance = float.MaxValue;
 
-		// ���� ����� ���� ��ġ�� �޾� ������ ����
+		// ���� �����?���� ��ġ�� �޾� ������ ����
 		foreach (Enemy enemy in GameManager.Instance.enemies)
 		{
 			float distance = Vector3.Distance(transform.position, enemy.transform.position);
@@ -83,7 +98,7 @@ public class Player : MonoBehaviour
 		Move(moveDir);
 	}
 
-	// �Ķ���ͷ� �Ѿ�� ��ų�� ������ ��½�Ű�� ���������� ���������� ��ü
+	// �Ķ���ͷ�?�Ѿ��?��ų�� ������ ��½�Ű��?���������� ���������� ��ü
 	public void OnSkillLevelUp(SkillSlot skillSlot)
 	{
 		if (skillSlot.skillLevel >= skillSlot.skillPrefabs.Length - 1)
@@ -133,8 +148,8 @@ public class Player : MonoBehaviour
 			//AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
 			//if (info.IsName("Hit") == false)
 
-			// ����� �ǰݾִϸ��̼� -> �ǰݾִϸ��̼����� ���� Transition�� HitTrigger�� �����߰� HasExitTime�� üũ �����ؼ� Hit�ϸ� �ٷιٷ�
-			// �ش� �ִϸ��̼��� ����ǰԲ� �ߴ�.
+			// �����?�ǰݾִϸ��̼� -> �ǰݾִϸ��̼����� ���� Transition�� HitTrigger�� �����߰� HasExitTime�� üũ �����ؼ� Hit�ϸ� �ٷιٷ�
+			// �ش� �ִϸ��̼��� ����ǰԲ�?�ߴ�.
 			anim.SetTrigger("Hit");
 		}
 	}
@@ -182,19 +197,19 @@ public class Player : MonoBehaviour
 			item.Contact();
 		}
 
-		// Ư�� Ŭ������ ������� �ʰ�, �������� ���� ���� ��ü���� ��쿡 ���� ���� �ൿ�� �ؾ� �� ���
-		// Interface�� ����� �� �ִ�.
+		// Ư�� Ŭ������ �������?�ʰ�, �������� ���� ���� ��ü���� ���?���� ���� �ൿ�� �ؾ� �� ���?
+		// Interface�� �����?�� �ִ�.
 		//if (collision.TryGetComponent<IContactable>(out IContactable contactable))
 		//{
 		//	contactable.Contact();
 		//}
 
-		// ���� ������Ʈ�� ��� SendMessage�� ���� ������ �ִ� ������Ʈ�� Ư�� �̸��� ���� �Լ��� ȣ���ϵ��� �ϴ� ����� �����Ѵ�.	
+		// ���� ������Ʈ�� ���?SendMessage�� ���� ������ �ִ� ������Ʈ�� Ư�� �̸��� ���� �Լ��� ȣ���ϵ��� �ϴ� �����?�����Ѵ�.	
 		//collision.SendMessage("Contact", SendMessageOptions.DontRequireReceiver);
 		// SendMessage ���� ������
-		// 1. ���ڿ��� �Լ��� ȣ���ϹǷ� �Լ� �̸� ���� �Ǵ� ��Ÿ �߻� �� ���� ã�Ⱑ �����.
-		// 2. �ش� ��ü�� �ִ� ��� ������Ʈ���� Contact��� �Լ��� ������ �ִ��� Ž���� �����ϱ� ������ �����ս��� ȿ�����̶�� ���� �����.
-		// 3. ȣ���� �Լ��� �Ķ���ʹ� 0�� �Ǵ� 1���� ���ѵȴ�. 
+		// 1. ���ڿ��� �Լ��� ȣ���ϹǷ� �Լ� �̸� ���� �Ǵ� ��Ÿ �߻� �� ���� ã�Ⱑ �����?
+		// 2. �ش� ��ü�� �ִ� ���?������Ʈ���� Contact���?�Լ��� ������ �ִ��� Ž���� �����ϱ� ������ �����ս��� ȿ�����̶��?���� �����?
+		// 3. ȣ���� �Լ��� �Ķ���ʹ�?0�� �Ǵ� 1���� ���ѵȴ�. 
 	}
 
 }

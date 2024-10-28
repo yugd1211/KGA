@@ -19,10 +19,10 @@ public class UIManager : SingletonManager<UIManager>
 	public TextMeshProUGUI damageText;
 	public TextMeshProUGUI hpText;
 
-	
+
 	private bool isPaused = false;
 
-	//Reset �޽��� �Լ� : ������Ʈ�� ó�� �����ǰų� ������Ʈ �޴��� Reset�� ������ ��� ȣ��
+	//Reset 占쌨쏙옙占쏙옙 占쌉쇽옙 : 占쏙옙占쏙옙占쏙옙트占쏙옙 처占쏙옙 占쏙옙占쏙옙占실거놂옙 占쏙옙占쏙옙占쏙옙트 占쌨댐옙占쏙옙 Reset占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占?호占쏙옙
 	private void Reset()
 	{
 		mainCanvas = GetComponent<Canvas>();
@@ -47,8 +47,8 @@ public class UIManager : SingletonManager<UIManager>
 		}
 
 		playerHPBar.fillAmount = GameManager.Instance.player.hpAmount;
-		killCount.text = $"킬 수 : {GameManager.Instance.player.KillCount}";
-		totalKillCount.text = $"종합 킬 수 : {GameManager.Instance.player.TotalKillCount}";
+		killCount.text = $"????: {GameManager.Instance.player.KillCount}";
+		totalKillCount.text = $"醫낇빀 ????: {GameManager.Instance.player.TotalKillCount}";
 		levelText.text = $"Level : {GameManager.Instance.player.Level}";
 		expText.text = $"Exp : {GameManager.Instance.player.exp}";
 		damageText.text = $"Damage : {GameManager.Instance.player.Damage}";
