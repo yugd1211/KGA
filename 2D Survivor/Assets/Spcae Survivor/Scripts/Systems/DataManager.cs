@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DataManager : SingletonManager<DataManager>
 {
-    // PlayerPrefs : 디바이스에 저장된 게임 데이터를 불러오거나 디바이스에 저장하는 기능 제공
-    // 주로 정적 함수를 호출하여 기능을 활용 한다.
+    // PlayerPrefs : ?遺얠뺍??곷뮞?????貫留?野껊슣???怨쀬뵠?怨? ?븍뜄???브탢???遺얠뺍??곷뮞?????館釉??疫꿸퀡????볥궗
+    // 雅뚯눖以??類ㅼ읅 ??λ땾???紐꾪뀱??뤿연 疫꿸퀡?????뽰뒠 ??뺣뼄.
     int killCount;
 
     public bool clearPrefsOnStart = false;
@@ -19,7 +19,7 @@ public class DataManager : SingletonManager<DataManager>
         OnLoad();
         SceneManager.sceneLoaded += (scene, mode) =>
         {
-            print($"씬 로드됨 ${scene.name}");
+            print($"??嚥≪뮆諭??${scene.name}");
             if (scene == SceneManager.GetSceneByName("GameScene"))
                 OnLoad();
         };
@@ -29,16 +29,16 @@ public class DataManager : SingletonManager<DataManager>
     {
         int totalKillCount = GameManager.Instance.player.TotalKillCount;
 
-        // PlayerPrefs의 캐시에 값을 입력 (key : string, value : int)
+        // PlayerPrefs??筌?Ŋ???揶쏅?????낆젾 (key : string, value : int)
         PlayerPrefs.SetInt("TotalKillCount", totalKillCount);
 
-        // PlayerPrefs의 값을 저장
+        // PlayerPrefs??揶쏅???????
         PlayerPrefs.Save();
     }
 
     public void OnLoad()
     {
-        // 해당 key값에 저장된 데이터가 없을때의 기본값을 지정할 수 있다.
+        // ????key揶쏅?肉????貫留??怨쀬뵠?怨? ??곸뱽???벥 疫꿸퀡??첎誘れ뱽 筌왖?類λ막 ????덈뼄.
         int totalKillCount = PlayerPrefs.GetInt("TotalKillCount", 0);
         GameManager.Instance.player.TotalKillCount = totalKillCount;
     }
