@@ -29,12 +29,12 @@ public class Planet : MonoBehaviour
 
 
 	void FixedUpdate()
-    {
-		// 자전
+	{
+		// ?�전
 		transform.position = revolveTarget.transform.position + new Vector3(targetScale / 2, 0, 0);
 		transform.position = transform.position + new Vector3(revolveDistance * solar.disdanceMag, 0, 0);
 		transform.Rotate(Vector3.up, 360 * Time.fixedDeltaTime / rotateSpeed);
-		
+
 
 		// 공전
 		revolveTime += (Time.fixedDeltaTime * (2 * Mathf.PI) / revolveSpeed);

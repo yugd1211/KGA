@@ -6,20 +6,22 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - TrackingObject
+  - Actors
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Physics
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - UI Block
+  - CameraPassthrough
+  - FirstCanOnly
+  - Minimap Icon
+  - Player
+  - Enemy
+  - Box
   - 
   - 
   - 
