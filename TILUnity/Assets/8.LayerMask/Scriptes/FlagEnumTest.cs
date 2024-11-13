@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-// enum : int¿Í ¹ĞÁ¢ÇÑ °ü°è°¡ ÀÖÀ½
-public enum State
+// enum : intï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½è°¡ ï¿½ï¿½ï¿½ï¿½
+public enum FlagState
 {
 	None = 0,
 	Idle = 1,
@@ -13,9 +13,9 @@ public enum State
 	Die = 6
 }
 
-// Enum ¾Õ¿¡ Flags Attribute¸¦ ºÙÀÌ¸é, ÇØ´ç EnumÀº ºñÆ® ÇÃ·¡±×·Î »ç¿ëÇÒ ¼ö ÀÖÀ½
-// ÁÖÀÇ : Flags Attribute°¡ ºÎÂøµÈ EnumÀÇ °¢ Ç×¸ñÀÇ °ªÀº
-// 1¿¡ ÇÑ¹ø¸¸ ºñÆ® ¿¬»ê ÇÑ °ªÀÌ ¾Æ´Ò °æ¿ì Á¤»ó ÀÛµ¿ÇÏÁö ¾ÊÀ½ ¿¹) 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 or 1 << 0, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6, 1 << 7, 1 << 8, 1 << 9, 1 << 10
+// Enum ï¿½Õ¿ï¿½ Flags Attributeï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½Ø´ï¿½ Enumï¿½ï¿½ ï¿½ï¿½Æ® ï¿½Ã·ï¿½ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ : Flags Attributeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Enumï¿½ï¿½ ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 1ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½) 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 or 1 << 0, 1 << 1, 1 << 2, 1 << 3, 1 << 4, 1 << 5, 1 << 6, 1 << 7, 1 << 8, 1 << 9, 1 << 10
 
 //[Flags]
 //public enum Debuff
@@ -44,7 +44,7 @@ namespace MyProject
 {
 	public class FlagEnumTest : MonoBehaviour
 	{
-		public State state;
+		public FlagState state;
 		public Debuff debuff;
 
 		private void Start()
