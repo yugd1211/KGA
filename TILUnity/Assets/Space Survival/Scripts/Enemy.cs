@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour
 	{
 		Vector2 moveDir = target.position - transform.position;
 		Move(moveDir.normalized);
-		//print(moveDir.magnitude);//vector.magnitude:해당 벡터가 "방향벡터"로 간주될 때, 벡터의 길이
-		//print(moveDir.normalized);//방향을 유지한채 길이가 1로 고정된 벡터.
+		//print(inputValue.magnitude);//vector.magnitude:해당 벡터가 "방향벡터"로 간주될 때, 벡터의 길이
+		//print(inputValue.normalized);//방향을 유지한채 길이가 1로 고정된 벡터.
 		hpBar.fillAmount = hpAmount;
 	}
 

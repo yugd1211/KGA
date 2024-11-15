@@ -23,12 +23,12 @@ public class MessageMethodTest : MonoBehaviour
 	}
 
 	// 1. Start : 게임이 로드된 후, 가장 첫 프레임 시작 직전에 호출된다.
-	private string state;
+	private string state1;
 	private bool isInit = false;
 	private void Start()
 	{
 		print("Start 메서드 함수 호출");
-		state = "준비 완료";
+		state1 = "준비 완료";
 		isInit = true;
 	}
 
@@ -45,7 +45,7 @@ public class MessageMethodTest : MonoBehaviour
 	private void OnEnable()
 	{
 		if (isInit == false)
-			return; 
+			return;
 		print("활성화 ");
 	}
 

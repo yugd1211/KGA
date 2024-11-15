@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
 		this.moveDir.up = moveDir;
 		this.fireDir.up = fireDir;
 
-		//print(this.moveDir.up); // normalized 되어 magnitude가 1로 고정된 방향 벡터가 반환된다.
+		//print(this.inputValue.up); // normalized 되어 magnitude가 1로 고정된 방향 벡터가 반환된다.
 	}
 
 	/// <summary>
