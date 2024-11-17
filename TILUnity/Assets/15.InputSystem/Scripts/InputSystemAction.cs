@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
@@ -10,26 +8,60 @@ public class InputSystemAction : MonoBehaviour
 {
 	private Animator animator;
 	private Rig rig;
-	private WaitUntil untilReload;
-	public AnimationClip reloadClip;
-	private bool isReloading;
+	
+	
 	public InputActionAsset controlDefine;
-	private InputAction moveAction;
+	private InputAction reloadAction;
+	private InputAction grenadeAction;
+	private InputAction fireAction;
+	
+	public AnimationClip reloadClip;
+	private WaitUntil untilReload;
+	private bool isReloading;
+	
+	public AnimationClip grenadeClip;
+	private WaitUntil untilGrenade;
+	private bool isGrenade;
+	
+	public AnimationClip fireClip;
+	private WaitUntil untilFire;
+	private bool isFire;
 
 
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
 		rig = GetComponent<RigBuilder>().layers[0].rig;
-
 		controlDefine = GetComponent<PlayerInput>().actions;
-		moveAction = controlDefine.FindAction("Reload");
+		reloadAction = controlDefine.FindAction("Reload");
+		grenadeAction = controlDefine.FindAction("Grenade");
+		fireAction = controlDefine.FindAction("Fire");
+	}
+	private void OnEnable()
+	{
+		reloadAction.performed += OnReloadEvent;
+		grenadeAction.performed += OnGrenadeEvent;
+		fireAction.performed += OnFireEvent;
+		reloadAction.canceled += OnReloadEvent;
+		grenadeAction.canceled += OnGrenadeEvent;
+		fireAction.canceled += OnFireEvent;
 	}
 
-	private IEnumerator Start()
+	private void OnDisable()
 	{
-		untilReload = new WaitUntil(() => isReloading);
+		reloadAction.performed -= OnReloadEvent;
+		grenadeAction.performed -= OnGrenadeEvent;
+		fireAction.performed -= OnFireEvent;
+		reloadAction.canceled -= OnReloadEvent;
+		grenadeAction.canceled -= OnGrenadeEvent;
+		fireAction.canceled -= OnFireEvent;
+	}
 
+	
+	
+	
+	private IEnumerator UntilReload()
+	{
 		while (true)
 		{
 			yield return untilReload;
@@ -38,19 +70,41 @@ public class InputSystemAction : MonoBehaviour
 			rig.weight = 1;
 		}
 	}
-
-	private void OnEnable()
+	
+	private IEnumerator UntilGrenade()
 	{
-		moveAction.performed += OnReloadEvent;
-		moveAction.canceled += OnReloadEvent;
+		while (true)
+		{
+			yield return untilGrenade;
+			yield return new WaitForSeconds(grenadeClip.length);
+			isGrenade = false;
+			rig.weight = 1;
+		}
 	}
-
-	private void OnDisable()
+	
+	private IEnumerator UntilFire()
 	{
-		moveAction.performed -= OnReloadEvent;
-		moveAction.canceled -= OnReloadEvent;
+		while (true)
+		{
+			yield return untilFire;
+			yield return new WaitForSeconds(fireClip.length);
+			isFire = false;
+			rig.weight = 1;
+		}
 	}
+	
 
+	private void Start()
+	{
+		untilReload = new WaitUntil(() => isReloading);
+		untilGrenade = new WaitUntil(() => isGrenade);
+		untilFire = new WaitUntil(() => isFire);
+
+		StartCoroutine(UntilReload());
+		StartCoroutine(UntilGrenade());
+		StartCoroutine(UntilFire());
+	}
+	
 	public void OnReloadEvent(InputContext value)
 	{
 		if (value.performed)
@@ -62,20 +116,38 @@ public class InputSystemAction : MonoBehaviour
 			animator.SetTrigger("Reload");
 		}
 	}
-
 	public void OnReloadEnd()
 	{
 		print("OnReloadEnd");
 	}
 
-	private void OnReload(InputValue value)
+	public void OnGrenadeEvent(InputContext value)
 	{
-		// Single : float°ú À¯»ç
-		print($"OnReload: {value.isPressed}, {value.Get<Single>()}");
-		if (isReloading)
-			return;
-		rig.weight = 0f;
-		isReloading = true;
-		animator.SetTrigger("Reload");
+		if (value.performed)
+		{
+			if (isGrenade)
+				return;
+			rig.weight = 0f;
+			isGrenade = true;
+			animator.SetTrigger("Grenade");
+		}
+	}
+	
+	public void OnGrenadeEnd()
+	{
+		print("OnGrenadeEnd");
+	}
+	
+	public void OnFireEvent(InputContext value)
+	{
+		if (value.performed)
+		{
+			if (isFire)	
+				return;
+			print("OnFire");
+			rig.weight = 0f;
+			isFire = true;
+			animator.SetTrigger("Fire");
+		}
 	}
 }

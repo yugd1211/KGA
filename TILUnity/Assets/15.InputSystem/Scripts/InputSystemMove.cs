@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using InputContext = UnityEngine.InputSystem.InputAction.CallbackContext;
@@ -9,10 +7,11 @@ public class InputSystemMove : MonoBehaviour
 {
 	public float walkSpeed;
 	public float runSpeed;
+	private Vector2 smoothValue;
 
 	private CharacterController charCtrl;
 	private Animator animator;
-	private Vector2 inputValue; // 보간할 방향값
+	private Vector2 inputValue; 
 
 	public InputActionAsset controlDefine;
 	private InputAction moveAction;
@@ -27,12 +26,8 @@ public class InputSystemMove : MonoBehaviour
 
 	private void OnEnable()
 	{
-		//moveAction.started -> XXDown, MounseButtonDown 과 같음
 		moveAction.performed += OnMoveEvent;
-		//moveAction.started += OnMoveEvent;
-		// MounseButtonUp 과 같음
 		moveAction.canceled += OnMoveEvent;
-		//controlDefine.
 	}
 
 	private void OnDisable()
@@ -43,21 +38,19 @@ public class InputSystemMove : MonoBehaviour
 
 	public void OnMoveEvent(InputContext value)
 	{
+		if (!value.performed)
+			smoothValue = Vector2.zero;
 		inputValue = value.ReadValue<Vector2>();
 	}
 
-	private void OnMove(InputValue value)
-	{
-		//value.isPressed
-		inputValue = value.Get<Vector2>();
-	}
-
-
 	private void Update()
 	{
-		Vector3 inputMoveDir = new Vector3(inputValue.x, 0, inputValue.y) * walkSpeed;
+		Vector3 inputMoveDir = new Vector3(smoothValue.x, 0, smoothValue.y) * walkSpeed;
+		// Vector3 inputMoveDir = new Vector3(inputValue.x, 0, inputValue.y) * walkSpeed;
+		if (smoothValue.magnitude < 1f)
+			Vector2.SmoothDamp(Vector2.zero, inputValue, ref smoothValue, 1f);
 		Vector3 actualMoveDir = transform.TransformDirection(inputMoveDir);
-
+		// print($"{inputValue}, smoothValue : {smoothValue}, {smoothValue},   {actualMoveDir}");
 		charCtrl.Move(actualMoveDir * Time.deltaTime);
 
 		animator.SetFloat("Xdir", inputValue.x);

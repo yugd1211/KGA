@@ -53165,16 +53165,19 @@ PrefabInstance:
       addedObject: {fileID: 1972024038}
     - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1972024048}
+    - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1972024045}
+    - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1972024041}
     - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1972024040}
     - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1972024039}
-    - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1972024042}
+      addedObject: {fileID: 1972024044}
   m_SourcePrefab: {fileID: 100100000, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
 --- !u!1001 &1145100545
 PrefabInstance:
@@ -89767,21 +89770,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 1544094204}
     m_Active: 1
   m_Effectors: []
---- !u!114 &1972024039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972024031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819b8c8d671608849a19a8d04b4ffb4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 0
-  controlDefine: {fileID: -944628639613478452, guid: df53bd00803b2eb458236fae3d4d1e90, type: 3}
 --- !u!114 &1972024040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89796,7 +89784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRig: {fileID: 860193699}
   mouseSensivity: 3
-  controlDefine: {fileID: -944628639613478452, guid: df53bd00803b2eb458236fae3d4d1e90, type: 3}
+  controlDefine: {fileID: 0}
 --- !u!114 &1972024041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89809,9 +89797,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa204d31d0a0f3347a28209f25c1ed4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadClip: {fileID: -203655887218126122, guid: 96aabc10719367847b5fe8bd4c3cbfbb, type: 3}
   controlDefine: {fileID: 0}
---- !u!114 &1972024042
+  reloadClip: {fileID: -203655887218126122, guid: 96aabc10719367847b5fe8bd4c3cbfbb, type: 3}
+  grenadeClip: {fileID: -203655887218126122, guid: 3d78996b022bf194880730ac712cdc99, type: 3}
+  fireClip: {fileID: -203655887218126122, guid: 7bf76110917119a4586db7c029b8789d, type: 3}
+--- !u!114 &1972024044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972024031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819b8c8d671608849a19a8d04b4ffb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  runSpeed: 0
+  controlDefine: {fileID: 0}
+--- !u!114 &1972024045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89824,7 +89829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: df53bd00803b2eb458236fae3d4d1e90, type: 3}
-  m_NotificationBehavior: 3
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -89837,58 +89842,42 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1972024039}
-        m_TargetAssemblyTypeName: InputSystemMove, Assembly-CSharp
-        m_MethodName: OnMoveEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 85211bb5-22db-4a7d-82a9-a77ea8b2a973
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1972024040}
-        m_TargetAssemblyTypeName: InputSystemLook, Assembly-CSharp
-        m_MethodName: OnLookEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 048bc3e8-de0a-459f-9098-95e4585d0d50
-    m_ActionName: Player/Look[/Mouse/delta]
+    m_ActionName: Player/Look
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1972024041}
-        m_TargetAssemblyTypeName: InputSystemAction, Assembly-CSharp
-        m_MethodName: OnReloadEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 2a434bb1-1191-464a-8b94-e9e0b7a82dcc
     m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aef149a5-088a-493e-a743-a922fd47d522
+    m_ActionName: Player/Fire
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 45416d07-28ad-4611-a81a-44e1c8c67ec0
+    m_ActionName: Player/Grenade[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1972024048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972024031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17844aa95a31414a8e52e2ebe7fab5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1972282229
 PrefabInstance:
   m_ObjectHideFlags: 0
