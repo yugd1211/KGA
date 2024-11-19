@@ -9,7 +9,6 @@ public class InputSystemAction : MonoBehaviour
 	private Animator animator;
 	private Rig rig;
 	
-	
 	public InputActionAsset controlDefine;
 	private InputAction reloadAction;
 	private InputAction grenadeAction;
@@ -26,21 +25,22 @@ public class InputSystemAction : MonoBehaviour
 	public AnimationClip fireClip;
 	private WaitUntil untilFire;
 	private bool isFire;
-
-
+	
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
 		rig = GetComponent<RigBuilder>().layers[0].rig;
 		controlDefine = GetComponent<PlayerInput>().actions;
+		
 		reloadAction = controlDefine.FindAction("Reload");
 		grenadeAction = controlDefine.FindAction("Grenade");
 		fireAction = controlDefine.FindAction("Fire");
 	}
+	
 	private void OnEnable()
 	{
 		reloadAction.performed += OnReloadEvent;
-		grenadeAction.performed += OnGrenadeEvent;
+		grenadeAction.performed += OnGrenadeEvent; 
 		fireAction.performed += OnFireEvent;
 		reloadAction.canceled += OnReloadEvent;
 		grenadeAction.canceled += OnGrenadeEvent;
@@ -56,9 +56,6 @@ public class InputSystemAction : MonoBehaviour
 		grenadeAction.canceled -= OnGrenadeEvent;
 		fireAction.canceled -= OnFireEvent;
 	}
-
-	
-	
 	
 	private IEnumerator UntilReload()
 	{
@@ -116,6 +113,7 @@ public class InputSystemAction : MonoBehaviour
 			animator.SetTrigger("Reload");
 		}
 	}
+	
 	public void OnReloadEnd()
 	{
 		print("OnReloadEnd");
