@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Drawing.Inspector.PropertyDrawers;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController), typeof(Animator))]
@@ -40,8 +39,8 @@ public class PlayerMove : MonoBehaviour
 	{
 		Vector3 inputValue = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-		// ClampMagnitudeë¥??¬ìš©?˜ì—¬ ?€ê°ì„  ?´ë™ ?ë„ë¥?1ë¡??œí•œ
-		// normalizeë¡??˜ë©´ 0 ~ 1??1ë¡?? ê²ƒ?´ê¸° ?Œë¬¸??
+		// ClampMagnitudeï¿½??ï¿½ìš©?ï¿½ì—¬ ?ï¿½ê°ì„  ?ï¿½ë™ ?ï¿½ë„ï¿½?1ï¿½??ï¿½í•œ
+		// normalizeï¿½??ï¿½ë©´ 0 ~ 1??1ï¿½??ï¿½ê²ƒ?ï¿½ê¸° ?ï¿½ë¬¸??
 		inputValue = Vector3.ClampMagnitude(inputValue, 1);
 
 		float runValue = Input.GetAxis("Fire3");

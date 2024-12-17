@@ -1,0 +1,45 @@
+{
+    "name": "TCPSocket",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "f7435525-b29f-4db3-804c-ab1291d228a3",
+            "actions": [
+                {
+                    "name": "click",
+                    "type": "Button",
+                    "id": "300ec264-56bd-4071-8f84-7f1d18797859",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "83b5845b-800a-45b5-8ba0-88fa34fcbe60",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fb77852-217f-495c-a933-ea506fe35dc4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

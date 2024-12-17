@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/21.TCPSocket/Scenes/Client.unity
+    guid: 70e14613f06631e4c99b5030dc628478
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 68896c8dfed6bfb4ebc1cdb8cdae4a3c, type: 2}
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: df53bd00803b2eb458236fae3d4d1e90, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 71929eb084e883c49a5b766dad713aae, type: 3}

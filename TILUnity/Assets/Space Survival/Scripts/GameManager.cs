@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 
-// ±âº»ÀûÀÎ °´Ã¼ÁöÇâÇü ¾ð¾î¿¡¼­ ½Ì±ÛÅæ °´Ã¼¸¦ ¸¸µå´Â ¹æ¹ý
-// °ÔÀÓ ÀüÃ¼ ÁøÇàÀ» ÃÑ°ýÇÏ´Â ¿ÀºêÁ§Æ®
+// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î¿¡ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 public class GameManager : MonoBehaviour
 {
 	private static GameManager instance;
 	public static GameManager Instance => instance;
-	private GameManager() {/* »ý¼ºÀÚ¸¦ private·Î ¼±¾ðÇÏ¿© ¿ÜºÎ¿¡¼­ »ý¼ºÀ» ¸·´Â´Ù. */}
+	private GameManager() {/* ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ privateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½. */}
 
 	internal List<Enemy> enemies = new List<Enemy>();
 	internal Player player;
 
-	// À¯´ÏÆ¼¿¡¼­ ½Ì±ÛÅæ ÆÐÅÏÀ» Àû¿ëÇÏ´Â ¹æ¹ý
+	// ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 	private void Awake()
 	{
 		if (instance != null)
