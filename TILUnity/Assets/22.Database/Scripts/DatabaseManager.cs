@@ -44,9 +44,7 @@ public class DatabaseManager : MonoBehaviour
 		               $"uid=root;pwd={rootPasswd};charset=utf8";
 
 		connection = new MySqlConnection(config); 
-		print($"mysql 접속 시작. state : {connection.State}");
 		await connection.OpenAsync();
-		print($"mysql 접속 성공. state : {connection.State}");
 	}
 
 	public async void SignUp(string email, string userName, string passwd)
@@ -171,5 +169,43 @@ public class DatabaseManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public async void Delete(string email)
+	{
+		using (MySqlCommand cmd = new MySqlCommand())
+		{
+			cmd.Connection = connection;
+			cmd.CommandText = $"DELETE FROM {tableName} WHERE email='{email}'";
+			await cmd.ExecuteNonQueryAsync();
+		}
+	}
+
+	public List<UserData> rankDataList = new List<UserData>();
+
+	public async void GetUserRank(int size)
+	{
+		// mysqlconnection 객체생성해서 order by 의 인자로 size를 줘서 desc로 정렬해서 가져옴
+		using (MySqlCommand cmd = new MySqlCommand())
+		{
+			cmd.Connection = connection;
+			cmd.CommandText = $"SELECT email, username, class, level FROM {tableName} ORDER BY level DESC LIMIT {size}";
+			using (MySqlDataReader reader = await cmd.ExecuteReaderAsync())
+			{
+				List<UserData> userDataList = new List<UserData>();
+				while (reader.Read())
+				{
+					UserData userData = new UserData(
+						reader[0].ToString(), 
+						reader[1].ToString(), 
+						reader[2].ToString(), 
+						int.Parse(reader[3].ToString()));
+					userDataList.Add(userData);
+				}
+				rankDataList = userDataList;
+			}
+		}
+		UIManager.Instance.PageOpen("Ranking");
+		UIManager.Instance.rankPanel.SetData(rankDataList);
 	}
 }

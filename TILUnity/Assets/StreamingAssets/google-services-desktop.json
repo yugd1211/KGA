@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "572396033892",
+    "firebase_url": "https://myfirstfirebase-efc3e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "myfirstfirebase-efc3e",
+    "storage_bucket": "myfirstfirebase-efc3e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572396033892:android:b46637d53a868dc410cc71",
+        "android_client_info": {
+          "package_name": "com.kyungil.myFirstFirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcyV9OO-qH51gukptF-gSzPfhWsIDKC5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

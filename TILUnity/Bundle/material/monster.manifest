@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 70277211
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 136379fa463accd2172f5e9109e40575
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 136379fa463accd2172f5e9109e40575
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/17.SurfaceShader/ShaderSample/checkerboard.png
+Dependencies: []

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 	public UILogIn logIn; // 로그인 페이지
 	public UIUserInfo userInfo; // 유저 정보 페이지
 	public UIPopup popup; // 팝업 페이지
+	public RankPanel rankPanel; // 랭킹 페이지
 	
 	private Dictionary<string, GameObject> pages = new Dictionary<string, GameObject>();
 	private GameObject currentPage; // 현재 열려 있는 페이지
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
 		pages.Add("LogIn", logIn.gameObject);
 		pages.Add("UserInfo", userInfo.gameObject);
 		pages.Add("Popup", popup.gameObject);
+		pages.Add("Ranking", rankPanel.gameObject);
 	}
 
 	private void Start()

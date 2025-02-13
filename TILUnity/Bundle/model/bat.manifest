@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 585934261
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9a7f86c33a0d78cce3f505bf15efff44
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 9a7f86c33a0d78cce3f505bf15efff44
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/17.SurfaceShader/ShaderSample/Bat_Color.jpg
+Dependencies: []
